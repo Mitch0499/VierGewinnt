@@ -62,7 +62,14 @@ Zum Starten der Uhr drücken Sie bitte auf Start. Sie können die Uhr mittels St
 Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spiels. Sie werden erkennen, dass das Spiel in 6 Reihen und 7 Spalten aufgebaut ist. Die typischen Regeln eines Vier Gewinnt Spiels sind folgende: Das Spiel wird im eins gegen eins Modus gespielt. Jeder Spieler bekommt eine Farbe von Spielsteinen, mit denen er versuchen soll eine Reihe von 4 Spielsteinen hintereinander seiner Farbe zu bekommen. Dies kann horizontal, vertikal oder auch diagonal erreicht werden. Sobald der Spieler eine solche Viererreihe erreicht hat er gewonnen und das Spiel kann erneut gestartet werden. 
 
 ## User Stories
-
+| **Userstory Nr.** |   **Userstories / Akzeptanzkriterien**  | **Storypoints**  |  **Priorität** |
+|---|-----|---|---|
+| 1  | Als Benutzer möchte ich eine Spalte auswählen um einen Spielstein zu platzieren. AK: Wahl zwischen 7 Spalten durch Buttons | 8  |  1 |
+| 2  |   Als Benutzer möchte ich das Spiel neustarten und verlassen können AK: Neustart und Exit durch Buttons  |  3 |  2 |
+| 3  |   Als Benutzer möchte ich die Namen für die 2 Spieler eingeben können AK: Texteingabefeld welches bei jedem Start/Neustart erscheint und in den Namen vom Spieler 1 und 2 hintereinander abfragt  | 5  |  3 |
+|  4 |  Als Benutzer möchte ich angezeigt bekommen sobald ich gewonnen habe. AK: Öffnen eines neuen Fensters welches den Gewinner anzeigt | 5 | 2  |
+|  5 |  Als Benutzer möchte ich angezeigt bekommen welcher Spieler am Zug ist. AK: Farbwechsel des Schriftzugs für den Spieler der am Zug ist  |  3 |  2 |
+| 6  |  Als Programmierer möchte ich das Programm einfach nachvollziehen können um es nachbauen, warten und neue Features einfügen zu können. AK: Kommentare im Code. Logische Struktur (Klassen, Methoden, Variablen)  |  3 | 1  |
 ## Releaseplan
 
 ## Dokumentation Sprint 1
