@@ -71,7 +71,13 @@ Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spie
 |  5 |  Als Benutzer möchte ich angezeigt bekommen welcher Spieler am Zug ist. AK: Farbwechsel des Schriftzugs für den Spieler der am Zug ist  |  3 |  2 |
 | 6  |  Als Programmierer möchte ich das Programm einfach nachvollziehen können um es nachbauen, warten und neue Features einfügen zu können. AK: Kommentare im Code. Logische Struktur (Klassen, Methoden, Variablen)  |  3 | 1  |
 ## Releaseplan
+|  Release 1 | Release 2  |
+|:-:|:-:|
+|  US 1 | US 2  |
+|  US 4 | US 6  |
+| US 5  |  US 3 |
 
+Legende : US = Userstory
 ## Dokumentation Sprint 1
 ![Bild Oberfläche1](Bilder/Oberfläche1.PNG)
 #### Taskliste der User Stories
