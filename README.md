@@ -66,7 +66,7 @@ Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spie
 ## Releaseplan
 
 ## Dokumentation Sprint 1
-![Bild Oberfläche1](Oberfläche1.PNG)
+![Bild Oberfläche1](Bilder/Oberfläche1.PNG)
 #### Taskliste der User Stories
 
 #### UML Klassen- und Sequenzdiagramme
