@@ -1,5 +1,206 @@
+/*
+ * Projektarbeit Programmieren II
+ * 
+ * Betreuer:
+ * Matthias Bachmann
+ * 
+ * Team:
+ * Carl Podevijn
+ * Yannis Schmidt
+ * Tamara Lodico
+ * Kilian Vallotton
+ * 
+ * Projekt:
+ * Programmiern eines "Vier Gewinnt-Puissance quatre" mit JavaFX auf Eclipse. 
+ * Zudem wird das Projekt mittels SCUM durchgeführt und in 3 Sprints aufgeteilt.
+ * 
+ * Vertigstellungsdatum: 20.12.2018
+ */
+
 package View;
 
-public class RootLayout {
+import java.util.ArrayList;
 
+import VierGewinnt.MainApp;
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+
+public class RootLayout extends Application {
+
+	ArrayList<Line> values = new ArrayList<Line>();				//Arraylist for grid
+	BorderPane root = new BorderPane();							//Layout
+
+
+	public void start(Stage primaryStage) {
+		
+		int player = 0;
+
+		root.setTop(createTopPane());
+		root.setCenter(createCenterPane(player));
+		root.setRight(getRightHBox());
+		root.setLeft(getLeftHBox());
+		root.setBottom(createBottomPane());
+		root.setStyle("-fx-background-color: #ccebff;");
+
+
+		Scene scene = new Scene(root, 800, 700);
+
+		primaryStage.setTitle("Vier Gewinnt - Puissance Quatre");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	Pane createTopPane() {
+		Label l1 = new Label("VIER GEWINNT - PUISSANCE QUATRE");
+		l1.setPadding(new Insets(10, 10, 10, 10));
+		l1.setFont(new Font("ALGERIAN", 35));
+		l1.setTextFill(Color.web("BLUE"));
+		l1.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				l1.setScaleX(1.1);
+				l1.setScaleY(1.1);
+			}
+		});
+		l1.setOnMouseExited(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent e) {
+				l1.setScaleX(1);
+				l1.setScaleY(1);
+			}
+		});
+
+		HBox hbox = new HBox();
+		hbox.getChildren().add(l1);
+		hbox.setAlignment(Pos.CENTER);
+		return hbox;
+	}
+
+
+	Pane createCenterPane(int player) {
+		
+		//Button
+		/*Button button[] = new Button[7];
+		HBox hbox;
+		
+		for(int i=0; i<7; i++) {
+			button[i] = new Button("#" +i+1);
+			button[i].setFont(Font.font("Cambria", 32));
+			button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
+			button[i].setOnAction(event -> {	MainApp.nextPlayer(player);
+												MainApp.refreshPitch(i, player));
+			});
+			
+			hbox = new HBox(20, button[i]);
+		}
+		*/
+		Button button1 = new Button("#1");
+		button1.setFont(Font.font("Cambria", 15));
+		button1.setStyle("-fx-background-color: #3232ff"); //background color of button
+		//button1.setOnAction(event -> {	MainApp.nextPlayer(player);
+		//									MainApp.refreshPitch(0,player));
+		//});
+		Button button2 = new Button("#2");
+		Button button3 = new Button("#3");
+		Button button4 = new Button("#4");
+		Button button5 = new Button("#5");
+		Button button6 = new Button("#6");
+		Button button7 = new Button("#7");
+		
+		//Playground
+				GridPane gpane = new GridPane();
+				
+				for (int column = 0; column < 6; column++)
+				{
+					for (int row = 0; row < 7; row++)
+					{
+						//Grid
+						Rectangle rect = new Rectangle(70, 70);
+						rect.setStroke(Color.BLACK);
+						rect.setFill(null);
+						gpane.add(rect, row, column);
+						
+						//Points	
+						Circle point = new Circle(0, 0, 25);
+						point.setStroke(Color.MainApp.colorPlayer(player));   //Color of Point
+						//point.setFill(null);
+						point.setStrokeWidth(5);
+						gpane.add(point, MainApp.getCoordinateX(), MainApp.getCoordinateY());
+						
+						GridPane.setHalignment(point, HPos.CENTER);
+						gpane.setAlignment(Pos.TOP_CENTER );
+					}  
+				}
+				
+		
+		HBox hbox = new HBox(20, button1, button2, button3, button4, button5, button6, button7);
+		hbox.setAlignment(Pos.CENTER);
+		hbox.setPadding(new Insets(20, 10, 10, 10));
+		
+		VBox vbox = new VBox();
+		vbox.getChildren().addAll(hbox, gpane);
+
+		return vbox;
+	}
+
+	HBox getRightHBox()	{
+		
+		Label resultat = new Label("Resultat");
+		resultat.setPadding(new Insets(40, 10, 10, 10));
+		resultat.setFont(new Font("ARIAL", 20));
+		resultat.setTextFill(Color.web("#000000"));
+		
+		HBox hbox = new HBox(resultat);
+		return hbox;
+	}
+
+	VBox getLeftHBox()	{
+		
+		Label s1 = new Label("Spieler 1");
+		s1.setPadding(new Insets(40, 10, 10, 10));
+		s1.setFont(new Font("ARIAL", 20));
+		s1.setTextFill(Color.web("#000000"));
+		
+		Label s2 = new Label("Spieler 2");
+		s2.setPadding(new Insets(10, 10, 10, 10));
+		s2.setFont(new Font("ARIAL", 20));
+		s2.setTextFill(Color.web("#000000"));
+		
+		VBox vbox = new VBox(s1, s2);
+		return vbox;
+	}
+
+	HBox createBottomPane() {
+		
+		Button newGame = new Button("new Game");
+		Button exit = new Button("Exit");
+		
+		HBox hbox = new HBox(20, newGame, exit);
+		hbox.setPadding(new Insets(20, 20, 20, 20));
+		hbox.setAlignment(Pos.CENTER_RIGHT);
+		return hbox;
+	}
+	
 }
