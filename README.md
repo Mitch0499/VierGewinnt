@@ -40,14 +40,16 @@ Die Aufgabenstellung formuliert das Erstellen eines Java Programms, welches auf 
 
 ## Ziele
 
-Das Ziel ist es die erlernten Fähigkeiten und Kompetenzen im Bereich Programmieren und Software Engineering innerhalb eines einzig Projektes zu in Verbindung zu bringen. Hierfür wollen wir das Spiel Vier Gewinnt programmieren. Auf einer graphischen Oberfläche soll unser Hauptprogramm (Das Spiel) originalgetreu dargestellt werden und unserer Spiel darauf gespielt werden. Wir planen für dieses Projekt 2 Sprints.
+Das Ziel ist es die erlernten Fähigkeiten und Kompetenzen im Bereich Programmieren und Software Engineering innerhalb eines einzig Projektes zu in Verbindung zu bringen. Hierfür wollen wir das Spiel Vier Gewinnt programmieren. Auf einer graphischen Oberfläche soll unser Hauptprogramm (Das Spiel) originalgetreu dargestellt werden und unser Spiel darauf gespielt werden. Wir planen für dieses Projekt 2 Sprints.
 
 ## Randbedingungen
 
 Das Programm soll in Java gelöst sein, hierfür sollen folgende Elemente zur Benutzung beachtet werden:
 
 Java: JDK 8.0 
+
 Eclipse EE
+
 Build-Automatisierung: Maven
 
 Der Aufwand des Projekts soll pro Student höchstens 10 Stunden sein
@@ -58,7 +60,6 @@ Laden Sie sich die Datei xyz.jar auf ihren Pc runter. Und führen Sie sie aus.
 
 ## Kurze Bedienungsanleitung
 
-Zum Starten der Uhr drücken Sie bitte auf Start. Sie können die Uhr mittels Stop anhalten. Unter Einstellungen können Sie die Farben und die Schriftgröße ändern.  
 Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spiels. Sie werden erkennen, dass das Spiel in 6 Reihen und 7 Spalten aufgebaut ist. Die typischen Regeln eines Vier Gewinnt Spiels sind folgende: Das Spiel wird im eins gegen eins Modus gespielt. Jeder Spieler bekommt eine Farbe von Spielsteinen, mit denen er versuchen soll eine Reihe von 4 Spielsteinen hintereinander seiner Farbe zu bekommen. Dies kann horizontal, vertikal oder auch diagonal erreicht werden. Sobald der Spieler eine solche Viererreihe erreicht hat er gewonnen und das Spiel kann erneut gestartet werden. 
 
 ## User Stories
@@ -87,8 +88,9 @@ Legende : US = Userstory
 
 Das Klassendiagramm:
 
-Für das Klassendiagramm haben wir am Anfang 2 Klassen. Eine Mainklasse in der unser Programm enthalten ist, sowie eine Klasse in der unsere Oberfläche enthalten ist.
-zum Speichern der Positon des Fensters und eine die die Oberfläche bildet. 
+Für das Klassendiagramm haben wir am Anfang 2 Klassen. Eine Mainklasse in der unser Hauptprogramm enthalten ist sowie eine Klasse in der unsere Oberfläche enthalten ist.
+
+Zum Speichern der Positon des Fensters und eine die die Oberfläche bildet. 
 
 
 #### Dokumentation wichtiger Code Snippets
