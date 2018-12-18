@@ -64,12 +64,13 @@ Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spie
 ## User Stories
 | **Userstory Nr.** |   **Userstories / Akzeptanzkriterien**  | **Storypoints**  |  **Priorität** |
 |---|-----|---|---|
-| 1  | Als Benutzer möchte ich eine Spalte auswählen um einen Spielstein zu platzieren. AK: Wahl zwischen 7 Spalten durch Buttons | 8 | 1 |
-| 2  |   Als Benutzer möchte ich das Spiel neustarten und verlassen können. AK: Neustart und Exit durch Buttons  | 3 | 2 |
-| 3  |   Als Benutzer möchte ich die Namen für die 2 Spieler eingeben können. AK: Texteingabefeld welches bei jedem Start/Neustart erscheint und in den Namen vom Spieler 1 und 2 hintereinander abfragt  | 5 | 3 |
-|  4 |  Als Benutzer möchte ich angezeigt bekommen sobald ich gewonnen habe. AK: Öffnen eines neuen Fensters welches den Gewinner anzeigt | 5 | 2  |
-|  5 |  Als Benutzer möchte ich angezeigt bekommen welcher Spieler am Zug ist. AK: Farbwechsel des Schriftzugs für den Spieler der am Zug ist  |  3 |  2 |
-| 6  |  Als Programmierer möchte ich das Programm einfach nachvollziehen können um es nachbauen, warten und neue Features einfügen zu können. AK: Kommentare im Code. Logische Struktur (Klassen, Methoden, Variablen)  |  3 | 1  |
+| 1  | Als Benutzer möchte ich eine Spalte auswählen um einen Spielstein zu platzieren.<br/>AK: Wahl zwischen 7 Spalten durch Buttons | 8 | 1 |
+| 2  |   Als Benutzer möchte ich das Spiel neustarten und verlassen können.<br/>AK: Neustart und Exit durch Buttons  | 3 | 2 |
+| 3  |   Als Benutzer möchte ich die Namen für die 2 Spieler eingeben können.<br/>AK: Texteingabefeld welches bei jedem Start/Neustart erscheint und in den Namen vom Spieler 1 und 2 hintereinander abfragt  | 5 | 3 |
+|  4 |  Als Benutzer möchte ich angezeigt bekommen sobald ich gewonnen habe.<br/>AK: Öffnen eines neuen Fensters welches den Gewinner anzeigt | 5 | 2  |
+|  5 |  Als Benutzer möchte ich angezeigt bekommen welcher Spieler am Zug ist.<br/> AK: Farbwechsel des Schriftzugs für den Spieler der am Zug ist  |  3 |  2 |
+| 6  |  Als Programmierer möchte ich das Programm einfach nachvollziehen können um es nachbauen, warten und neue Features einfügen zu können.<br/>AK: Kommentare im Code. Logische Struktur (Klassen, Methoden, Variablen)  |  3 | 1  |
+
 ## Releaseplan
 |  Release 1 | Release 2  |
 |:-:|:-:|
