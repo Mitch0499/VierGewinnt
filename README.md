@@ -72,6 +72,7 @@ Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spie
 |  5 |  Als Benutzer möchte ich angezeigt bekommen welcher Spieler am Zug ist.<br/> AK: Farbwechsel des Schriftzugs für den Spieler der am Zug ist  |  3 |  2 |
 | 6  |  Als Programmierer möchte ich das Programm einfach nachvollziehen können um es nachbauen, warten und neue Features einfügen zu können.<br/>AK: Kommentare im Code. Logische Struktur (Klassen, Methoden, Variablen)  |  3 | 1  |
 
+Legende : AK = Akzeptanzkriterium
 ## Releaseplan
 |  Release 1 | Release 2  |
 |:-:|:-:|
