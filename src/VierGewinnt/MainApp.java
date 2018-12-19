@@ -1,5 +1,7 @@
 package VierGewinnt;
 
+import javafx.scene.paint.Color;
+
 public class MainApp {
 
 	public static void main(String[] args) {
@@ -7,11 +9,11 @@ public class MainApp {
 	}
 	
 	//Point Color
-	public String pointColor(int player) {
+	public static Color pointColor(int player) {
 		if(player == 1) {
-			return "RED";
+			return Color.RED;
 		}else {
-			return "GREEN";
+			return Color.GREEN;
 		}
 	}
 	
