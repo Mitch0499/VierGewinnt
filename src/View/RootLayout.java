@@ -50,7 +50,7 @@ public class RootLayout extends Application {
 
 
 	public void start(Stage primaryStage) {
-		
+
 		int player = 0;
 
 		root.setTop(createTopPane());
@@ -100,66 +100,50 @@ public class RootLayout extends Application {
 
 
 	Pane createCenterPane(int player) {
-		
+
 		//Button
 		Button button[] = new Button[7];
 		HBox hbox;
-		
+
 		for(int i=0; i<7; i++) {
-			button[i] = new Button("#" +i+1);
-			button[i].setFont(Font.font("Cambria", 32));
+			button[i] = new Button("#" +(i+1));
+			button[i].setFont(Font.font("Cambria", 10));
 			button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
 			button[i].setOnAction(event -> {	MainApp.nextPlayer(player);
-												MainApp.refreshPitch(i, player));
+												MainApp.refreshPitch(i, player);
 			});
-			
-			
+
+
 		}
-		hbox = new HBox(20, button[]);
-		/*
-		Button button1 = new Button("#1");
-		button1.setFont(Font.font("Cambria", 15));
-		button1.setStyle("-fx-background-color: #3232ff"); //background color of button
-		//button1.setOnAction(event -> {	MainApp.nextPlayer(player);
-		//									MainApp.refreshPitch(0,player));
-		//});
-		Button button2 = new Button("#2");
-		Button button3 = new Button("#3");
-		Button button4 = new Button("#4");
-		Button button5 = new Button("#5");
-		Button button6 = new Button("#6");
-		Button button7 = new Button("#7");
-		*/
-		//Playground
-				GridPane gpane = new GridPane();
-				
-				for (int column = 0; column < 6; column++)
-				{
-					for (int row = 0; row < 7; row++)
-					{
-						//Grid
-						Rectangle rect = new Rectangle(70, 70);
-						rect.setStroke(Color.BLACK);
-						rect.setFill(null);
-						gpane.add(rect, row, column);
-						
-						//Points	
-						Circle point = new Circle(0, 0, 25);
-						point.setStroke(Color.MainApp.colorPlayer(player));   //Color of Point
-						//point.setFill(null);
-						point.setStrokeWidth(5);
-						gpane.add(point, MainApp.getCoordinateX(), MainApp.getCoordinateY());
-						
-						GridPane.setHalignment(point, HPos.CENTER);
-						gpane.setAlignment(Pos.TOP_CENTER );
-					}  
-				}
-				
-		
-		HBox hbox = new HBox(20, button1, button2, button3, button4, button5, button6, button7);
+		hbox = new HBox(20, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
 		hbox.setAlignment(Pos.CENTER);
 		hbox.setPadding(new Insets(20, 10, 10, 10));
-		
+
+		//Playground
+		GridPane gpane = new GridPane();
+
+		for (int column = 0; column < 6; column++)
+		{
+			for (int row = 0; row < 7; row++)
+			{
+				//Grid
+				Rectangle rect = new Rectangle(70, 70);
+				rect.setStroke(Color.BLACK);
+				rect.setFill(null);
+				gpane.add(rect, row, column);
+
+				//Points	
+				Circle point = new Circle(0, 0, 25);
+				point.setStroke(MainApp.pointColor(player));   //Color of Point
+				//point.setFill(null);
+				point.setStrokeWidth(5);
+				gpane.add(point, MainApp.getCoordinateX(), MainApp.getCoordinateY());
+
+				GridPane.setHalignment(point, HPos.CENTER);
+				gpane.setAlignment(Pos.TOP_CENTER );
+			}  
+		}
+
 		VBox vbox = new VBox();
 		vbox.getChildren().addAll(hbox, gpane);
 
@@ -167,41 +151,41 @@ public class RootLayout extends Application {
 	}
 
 	HBox getRightHBox()	{
-		
+
 		Label resultat = new Label("Resultat");
 		resultat.setPadding(new Insets(40, 10, 10, 10));
 		resultat.setFont(new Font("ARIAL", 20));
 		resultat.setTextFill(Color.web("#000000"));
-		
+
 		HBox hbox = new HBox(resultat);
 		return hbox;
 	}
 
 	VBox getLeftHBox()	{
-		
+
 		Label s1 = new Label("Spieler 1");
 		s1.setPadding(new Insets(40, 10, 10, 10));
 		s1.setFont(new Font("ARIAL", 20));
 		s1.setTextFill(Color.web("#000000"));
-		
+
 		Label s2 = new Label("Spieler 2");
 		s2.setPadding(new Insets(10, 10, 10, 10));
 		s2.setFont(new Font("ARIAL", 20));
 		s2.setTextFill(Color.web("#000000"));
-		
+
 		VBox vbox = new VBox(s1, s2);
 		return vbox;
 	}
 
 	HBox createBottomPane() {
-		
+
 		Button newGame = new Button("new Game");
 		Button exit = new Button("Exit");
-		
+
 		HBox hbox = new HBox(20, newGame, exit);
 		hbox.setPadding(new Insets(20, 20, 20, 20));
 		hbox.setAlignment(Pos.CENTER_RIGHT);
 		return hbox;
 	}
-	
+
 }
