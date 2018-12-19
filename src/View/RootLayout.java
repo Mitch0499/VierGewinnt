@@ -102,7 +102,7 @@ public class RootLayout extends Application {
 	Pane createCenterPane(int player) {
 		
 		//Button
-		/*Button button[] = new Button[7];
+		Button button[] = new Button[7];
 		HBox hbox;
 		
 		for(int i=0; i<7; i++) {
@@ -113,9 +113,10 @@ public class RootLayout extends Application {
 												MainApp.refreshPitch(i, player));
 			});
 			
-			hbox = new HBox(20, button[i]);
+			
 		}
-		*/
+		hbox = new HBox(20, button[]);
+		/*
 		Button button1 = new Button("#1");
 		button1.setFont(Font.font("Cambria", 15));
 		button1.setStyle("-fx-background-color: #3232ff"); //background color of button
@@ -128,7 +129,7 @@ public class RootLayout extends Application {
 		Button button5 = new Button("#5");
 		Button button6 = new Button("#6");
 		Button button7 = new Button("#7");
-		
+		*/
 		//Playground
 				GridPane gpane = new GridPane();
 				
