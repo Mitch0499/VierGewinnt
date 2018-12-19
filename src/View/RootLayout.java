@@ -180,8 +180,13 @@ public class RootLayout extends Application {
 	HBox createBottomPane() {
 
 		Button newGame = new Button("new Game");
+		newGame.setOnAction(event -> {	MainApp.startNewGame();
+		});
 		Button exit = new Button("Exit");
-
+		exit.setOnAction(event -> {	MainApp.exitGame();
+		});
+		
+		
 		HBox hbox = new HBox(20, newGame, exit);
 		hbox.setPadding(new Insets(20, 20, 20, 20));
 		hbox.setAlignment(Pos.CENTER_RIGHT);
