@@ -12,7 +12,6 @@ public class MainApp extends Application {
 	private int coordinateX, coordinateY;
 	
 	public static void main(String[] args) {
-
 		launch(args);
 	}
 	

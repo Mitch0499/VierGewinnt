@@ -14,7 +14,7 @@
  * Programmiern eines "Vier Gewinnt-Puissance quatre" mit JavaFX auf Eclipse. 
  * Zudem wird das Projekt mittels SCUM durchgeführt und in 3 Sprints aufgeteilt.
  * 
- * Vertigstellungsdatum: 20.12.2018
+ * Fertigstellungsdatum: 22.12.2018
  */
 
 package View;
@@ -55,7 +55,7 @@ public class RootLayout extends Application {
      */
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
-    }  
+    } 
 
 	ArrayList<Line> values = new ArrayList<Line>();				//Arraylist for grid
 	BorderPane root = new BorderPane();							//Layout
@@ -69,7 +69,7 @@ public class RootLayout extends Application {
 		root.setCenter(createCenterPane(player));
 		root.setRight(getRightHBox());
 		root.setLeft(getLeftHBox());
-		//root.setBottom(createBottomPane());						//Kilian
+		root.setBottom(createBottomPane());						
 		root.setStyle("-fx-background-color: #ccebff;");
 
 
@@ -80,9 +80,9 @@ public class RootLayout extends Application {
 		primaryStage.show();
 	}
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		launch(args);
-	}
+	}*/
 
 	Pane createTopPane() {
 		Label l1 = new Label("VIER GEWINNT - PUISSANCE QUATRE");
@@ -117,17 +117,15 @@ public class RootLayout extends Application {
 		Button button[] = new Button[7];
 		HBox hbox;
 
-		for(int i=0; i<7; i++) {
-			int zahl = i;                                                                      //Kilian anschauen
+		for(int i=0; i<7; i++) {                                                             
 			button[i] = new Button("#" +(i+1));
 			button[i].setFont(Font.font("Cambria", 10));
 			button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
-			button[i].setOnAction(event -> {	mainApp.nextPlayer(player);
-												mainApp.refreshPitch(zahl, player);				//Kilian anschauen
-			});
-
-
+			/*button[i].setOnAction(event -> {	MainApp.nextPlayer(player);
+												MainApp.refreshPitch(i, player);		
+			});*/
 		}
+		
 		hbox = new HBox(20, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
 		hbox.setAlignment(Pos.CENTER);
 		hbox.setPadding(new Insets(20, 10, 10, 10));
@@ -150,8 +148,8 @@ public class RootLayout extends Application {
 				point.setStroke(MainApp.pointColor(player));   //Color of Point
 				//point.setFill(null);
 				point.setStrokeWidth(5);
-				gpane.add(point, mainApp.getCoordinateX(), mainApp.getCoordinateY());
-
+				//gpane.add(point, MainApp.getCoordinateX(), MainApp.getCoordinateY());
+				gpane.add(point, row, column);
 				GridPane.setHalignment(point, HPos.CENTER);
 				gpane.setAlignment(Pos.TOP_CENTER );
 			}  
@@ -190,20 +188,20 @@ public class RootLayout extends Application {
 		return vbox;
 	}
 
-	/*HBox createBottomPane() {
+	HBox createBottomPane() {
 
 		Button newGame = new Button("new Game");
-		newGame.setOnAction(event -> {	mainApp.startNewGame();
-		});
+		//newGame.setOnAction(event -> {	mainApp.startNewGame();
+		//});
 		Button exit = new Button("Exit");
-		exit.setOnAction(event -> {	mainApp.exitGame();
-		});
+		//exit.setOnAction(event -> {	mainApp.exitGame();
+		//});
 		
 		
 		HBox hbox = new HBox(20, newGame, exit);
 		hbox.setPadding(new Insets(20, 20, 20, 20));
 		hbox.setAlignment(Pos.CENTER_RIGHT);
 		return hbox;
-	}*/
+	}
 
 }
