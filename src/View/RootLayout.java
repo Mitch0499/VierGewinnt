@@ -19,6 +19,10 @@
 
 package View;
 
+
+public class RootLayout {
+	
+	
 import java.util.ArrayList;
 
 import VierGewinnt.MainApp;
@@ -44,6 +48,18 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class RootLayout extends Application {
+
+    // Reference to the main application
+    private MainApp mainApp;
+
+    /**
+     * Is called by the main application to give a reference back to itself.
+     * 
+     * @param mainApp
+     */
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }  
 
 	ArrayList<Line> values = new ArrayList<Line>();				//Arraylist for grid
 	BorderPane root = new BorderPane();							//Layout
