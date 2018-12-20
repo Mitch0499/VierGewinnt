@@ -133,6 +133,4 @@ public class Logic {
 		this.coordinateY = row1;
 	}
 
-
-
 }
