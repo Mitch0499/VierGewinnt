@@ -20,7 +20,7 @@
 package View;
 
 
-public class RootLayout {
+
 	
 	
 import java.util.ArrayList;
@@ -47,8 +47,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-public class RootLayout extends Application {
 
+public class RootLayout extends Application { 
+	
     // Reference to the main application
     private MainApp mainApp;
 
@@ -73,7 +74,7 @@ public class RootLayout extends Application {
 		root.setCenter(createCenterPane(player));
 		root.setRight(getRightHBox());
 		root.setLeft(getLeftHBox());
-		root.setBottom(createBottomPane());
+		//root.setBottom(createBottomPane());						//Kilian
 		root.setStyle("-fx-background-color: #ccebff;");
 
 
@@ -122,11 +123,12 @@ public class RootLayout extends Application {
 		HBox hbox;
 
 		for(int i=0; i<7; i++) {
+			int zahl = i;                                                                      //Kilian anschauen
 			button[i] = new Button("#" +(i+1));
 			button[i].setFont(Font.font("Cambria", 10));
 			button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
-			button[i].setOnAction(event -> {	MainApp.nextPlayer(player);
-												MainApp.refreshPitch(i, player);
+			button[i].setOnAction(event -> {	mainApp.nextPlayer(player);
+												mainApp.refreshPitch(zahl, player);				//Kilian anschauen
 			});
 
 
@@ -153,7 +155,7 @@ public class RootLayout extends Application {
 				point.setStroke(MainApp.pointColor(player));   //Color of Point
 				//point.setFill(null);
 				point.setStrokeWidth(5);
-				gpane.add(point, MainApp.getCoordinateX(), MainApp.getCoordinateY());
+				gpane.add(point, mainApp.getCoordinateX(), mainApp.getCoordinateY());
 
 				GridPane.setHalignment(point, HPos.CENTER);
 				gpane.setAlignment(Pos.TOP_CENTER );
@@ -193,13 +195,13 @@ public class RootLayout extends Application {
 		return vbox;
 	}
 
-	HBox createBottomPane() {
+	/*HBox createBottomPane() {
 
 		Button newGame = new Button("new Game");
-		newGame.setOnAction(event -> {	MainApp.startNewGame();
+		newGame.setOnAction(event -> {	mainApp.startNewGame();
 		});
 		Button exit = new Button("Exit");
-		exit.setOnAction(event -> {	MainApp.exitGame();
+		exit.setOnAction(event -> {	mainApp.exitGame();
 		});
 		
 		
@@ -207,6 +209,6 @@ public class RootLayout extends Application {
 		hbox.setPadding(new Insets(20, 20, 20, 20));
 		hbox.setAlignment(Pos.CENTER_RIGHT);
 		return hbox;
-	}
+	}*/
 
 }
