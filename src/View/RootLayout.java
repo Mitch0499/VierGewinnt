@@ -85,6 +85,7 @@ public class RootLayout extends Application {
 	}*/
 
 	Pane createTopPane() {
+		
 		Label l1 = new Label("VIER GEWINNT - PUISSANCE QUATRE");
 		l1.setPadding(new Insets(10, 10, 10, 10));
 		l1.setFont(new Font("ALGERIAN", 35));
@@ -110,7 +111,6 @@ public class RootLayout extends Application {
 		return hbox;
 	}
 
-
 	Pane createCenterPane(int player) {
 
 		//Button
@@ -122,11 +122,20 @@ public class RootLayout extends Application {
 			button[i].setFont(Font.font("Cambria", 10));
 			button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
 			/*button[i].setOnAction(event -> {	MainApp.nextPlayer(player);
-												MainApp.refreshPitch(i, player);		
+												MainApp.refreshPitch(i, player);
 			});*/
 		}
 		
-		hbox = new HBox(20, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
+		//disable buttons if column is full
+		button[0].disableProperty().bind(game.points[0] == 6);
+		button[1].disableProperty().bind(game.points[1] == 6);
+		button[2].disableProperty().bind(game.points[2] == 6);
+		button[3].disableProperty().bind(game.points[3] == 6);
+		button[4].disableProperty().bind(game.points[4] == 6);
+		button[5].disableProperty().bind(game.points[5] == 6);
+		button[6].disableProperty().bind(game.points[6] == 6);
+		
+		hbox = new HBox(25, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
 		hbox.setAlignment(Pos.CENTER);
 		hbox.setPadding(new Insets(20, 10, 10, 10));
 
