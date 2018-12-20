@@ -1,34 +1,39 @@
 package VierGewinnt;
 
-
-import javafx.application.Application;
-import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 
-public class MainApp extends Application {
+public class MainApp {
 
 	int pitch [][] = new int [6][7];				//picht[zeile][spalte]=Spieler der Platz besetzt
-	static int points [] = new int [7];			//in der Klammer der Array steht welche Spalte betrachtet wird und das Ergebniss das gespeichert wird sind die Anzahl Spielchips in der Spalte
+	int points [] = new int [7];			//in der Klammer der Array steht welche Spalte betrachtet wird und das Ergebniss das gespeichert wird sind die Anzahl Spielchips in der Spalte
 	private int coordinateX, coordinateY;
 	
-	public static void main(String[] args) {
-		launch(args);
-	}
-	
-	public static void initColumns() {
+	//Setzt dasss in allen Spalten keien Spielsteine sind
+	private void initColumns() {
 		for (int i=0; i<points.length; i++) {
 			points[i]=0;			
 		}
 	}
 	
+	//Setzt dass kein Spieler einen Spielstein in einem Feld hat
+	private void initPitch() {
+		for (int i=0; i<6; i++) {
+			for (int j=0; j<7; j++) {
+				pitch [i][j] = 0;
+			}
+		}
+	}
+	
+	//Zählt die Anzahl Spielsteine hoch und speichert welcher Spieler in welchem Feld den Stein gesetzt hat
 	public void refreshPitch(int column, int player) {
-		points[column]++;							//Spielchips dazuzählen
+		points[column]++;
 		int row = 6-points[column];
 		pitch[row][column]=player;
 		setCoordinateX(column);
 		setCoordinateY(row);
 	}
 	
+	//Sucht nach einem Gewinner indem nach 4 Spielsteinen in einer Reihe vom selben Spieler gesucht wird
 	public boolean searchingWinner() {
 		boolean win = false;
 		//horizontal 4er Reihe
@@ -76,9 +81,21 @@ public class MainApp extends Application {
 		
 		return win;
 	}
+	
+	//Setzt Spiel zurück
+	public void resetGame() {
+		initColumns();
+		initPitch();
+		initPlayer();
+	}
+	
+	//Schliesst Fenster
+	public void exitGame() {
+		System.exit(0);
+	}
   
   //Point Color
-	public static Color pointColor(int player) {
+	public Color pointColor(int player) {
 		if(player == 1) {
 			return Color.RED;
 		}else {
@@ -98,7 +115,11 @@ public class MainApp extends Application {
 		}
 		return player;
 	}
-
+	
+	public int initPlayer() {
+		return 0;
+	}
+	
 	public int getCoordinateX() {
 		return coordinateX;
 	}
@@ -112,11 +133,6 @@ public class MainApp extends Application {
 		this.coordinateY = row1;
 	}
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
-		initColumns();
-		
-		
-	}
+
 
 }
