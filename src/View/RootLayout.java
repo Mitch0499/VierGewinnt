@@ -18,13 +18,8 @@
  */
 
 package View;
-
-
-
-	
 	
 import java.util.ArrayList;
-
 import VierGewinnt.MainApp;
 import javafx.application.Application;
 import javafx.event.EventHandler;
