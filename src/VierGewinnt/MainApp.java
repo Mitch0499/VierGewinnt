@@ -1,7 +1,9 @@
 package VierGewinnt;
 
+
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 
 public class MainApp extends Application {
 
@@ -10,6 +12,7 @@ public class MainApp extends Application {
 	private int coordinateX, coordinateY;
 	
 	public static void main(String[] args) {
+
 		launch(args);
 	}
 	
@@ -74,8 +77,28 @@ public class MainApp extends Application {
 		
 		return win;
 	}
+  
+  //Point Color
+	public static Color pointColor(int player) {
+		if(player == 1) {
+			return Color.RED;
+		}else {
+			return Color.GREEN;
+		}
+	}
 	
-	
+	//Player change
+	public int nextPlayer(int player) {
+		int reserve;
+		player++;
+		reserve = player % 2;
+		if(reserve == 0) {
+			player = 2;
+		}else {
+			player = 1;
+		}
+		return player;
+	}
 
 	public int getCoordinateX() {
 		return coordinateX;
@@ -95,9 +118,7 @@ public class MainApp extends Application {
 		initColumns();
 	}
 
-	
-	
-
-
+		
+	}
 
 }
