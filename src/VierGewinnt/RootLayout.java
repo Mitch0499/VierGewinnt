@@ -191,7 +191,6 @@ public class RootLayout extends Application {
 		exit.setOnAction(event -> {	game.exitGame();
 		});
 		
-		
 		HBox hbox = new HBox(20, newGame, exit);
 		hbox.setPadding(new Insets(20, 20, 20, 20));
 		hbox.setAlignment(Pos.CENTER_RIGHT);
