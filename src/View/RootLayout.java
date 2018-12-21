@@ -59,7 +59,7 @@ public class RootLayout extends Application {
 		game.initPlayer();
 		
 		root.setTop(createTopPane());
-		root.setCenter(createCenterPane(game.getPlayer()));
+		root.setCenter(createCenterPane());
 		root.setRight(getRightHBox());
 		root.setLeft(getLeftHBox());
 		root.setBottom(createBottomPane());						
@@ -105,7 +105,7 @@ public class RootLayout extends Application {
 		return hbox;
 	}
 
-	Pane createCenterPane(int player) {
+	Pane createCenterPane() {
 
 		//Button
 		Button button[] = new Button[7];
@@ -117,51 +117,51 @@ public class RootLayout extends Application {
 			button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
 		}
 
-		button[0].setOnAction(event -> {	game.nextPlayer(player);
-											game.refreshPitch(0, player);
+		button[0].setOnAction(event -> {	game.nextPlayer();
+											game.refreshPitch(0, game.getPlayer());
 											if (game.searchingWinner()==true) {
 												popupWinner();
 											}
 		});
 
 
-		button[1].setOnAction(event -> {	game.nextPlayer(player);											
-											game.refreshPitch(1, player);
+		button[1].setOnAction(event -> {	game.nextPlayer();											
+											game.refreshPitch(1, game.getPlayer());
 											if (game.searchingWinner()==true) {
 												popupWinner();
 											}
 		});
 
-		button[2].setOnAction(event -> {	game.nextPlayer(player);
-											game.refreshPitch(2, player);
+		button[2].setOnAction(event -> {	game.nextPlayer();
+											game.refreshPitch(2, game.getPlayer());
 											if (game.searchingWinner()==true) {
 												popupWinner();
 											}
 		});
 		
-		button[3].setOnAction(event -> {	game.nextPlayer(player);
-											game.refreshPitch(3, player);
+		button[3].setOnAction(event -> {	game.nextPlayer();
+											game.refreshPitch(3, game.getPlayer());
 											if (game.searchingWinner()==true) {
 												popupWinner();
 											}
 		});
 
-		button[4].setOnAction(event -> {	game.nextPlayer(player);
-											game.refreshPitch(4, player);
+		button[4].setOnAction(event -> {	game.nextPlayer();
+											game.refreshPitch(4, game.getPlayer());
 											if (game.searchingWinner()==true) {
 												popupWinner();
 											}
 		});
 
-		button[5].setOnAction(event -> {	game.nextPlayer(player);
-											game.refreshPitch(5, player);
+		button[5].setOnAction(event -> {	game.nextPlayer();
+											game.refreshPitch(5, game.getPlayer());
 											if (game.searchingWinner()==true) {
 												popupWinner();
 											}
 		});
 
-		button[6].setOnAction(event -> {	game.nextPlayer(player);
-											game.refreshPitch(6, player);
+		button[6].setOnAction(event -> {	game.nextPlayer();
+											game.refreshPitch(6, game.getPlayer());
 											if (game.searchingWinner()==true) {
 												popupWinner();
 											}
@@ -207,7 +207,7 @@ public class RootLayout extends Application {
 
 				//Points	
 				Circle point = new Circle(0, 0, 25);
-				point.setStroke(game.pointColor(player));   //Color of Point
+				point.setStroke(game.pointColor(game.getPlayer()));   //Color of Point
 				//point.setFill(null);
 				point.setStrokeWidth(5);
 				
