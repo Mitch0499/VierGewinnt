@@ -11,7 +11,7 @@ public class MainApp {
 	private String firstPlayer, secondPlayer;
 	private int countGames=0, winsFirstPlayer=0, winsSecondPlayer=0;
 	
-	//Setzt dasss in allen Spalten keien Spielsteine sind
+	//Setzt dass in allen Spalten keine Spielsteine sind
 	private void initColumns() {
 		for (int i=0; i<points.length; i++) {
 			points[i]=0;			
@@ -28,7 +28,7 @@ public class MainApp {
 		}
 	}
 	
-	//ZÃ¤hlt die Anzahl Spielsteine hoch und speichert welcher Spieler in welchem Feld den Stein gesetzt hat
+	//Zaehlt die Anzahl Spielsteine hoch und speichert welcher Spieler in welchem Feld den Stein gesetzt hat
 	public void refreshPitch(int column, int player) {
 		points[column]++;
 		int row = 6-points[column];
@@ -138,6 +138,15 @@ public class MainApp {
 		}else {
 			player = 1;
 		}
+	}
+	
+	//Mehoden für bind
+	public int bindColumn0() {
+		int value0 = 0;
+		if(getCoordinateX() == 0 && getCoordinateY() == 5) {
+			value0 = 10;
+		}
+		return value0;
 	}
 	
 	public void initPlayer() {

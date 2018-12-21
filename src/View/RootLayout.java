@@ -33,6 +33,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -400,6 +402,14 @@ public class RootLayout extends Application {
 		textField2.setPromptText("Name player 2");
 		Button button1 = new Button("Save");
 		button1.disableProperty().bind(Bindings.isEmpty(textField1.textProperty()).or(Bindings.isEmpty(textField2.textProperty())));
+		button1.setOnKeyPressed(event -> {	switch(event.getCode()) {
+											case ENTER:
+												game.setFirstPlayer(textField1.getText().toString());
+												game.setSecondPlayer(textField2.getText().toString());
+												window.close();
+												root.setLeft(getLeftHBox());
+		};									
+		});	
 		button1.setOnAction(event -> {
 			game.setFirstPlayer(textField1.getText().toString());
 			game.setSecondPlayer(textField2.getText().toString());
@@ -408,6 +418,11 @@ public class RootLayout extends Application {
 			root.setRight(getRightHBox());
 		});
 		Button button2 = new Button("Exit");
+		button2.setOnKeyPressed(event -> {	switch(event.getCode()) {
+											case ENTER:
+												game.exitGame();
+		};									
+		});
 		button2.setOnAction(event -> {	game.exitGame();
 		});
 				
