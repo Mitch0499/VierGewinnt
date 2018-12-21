@@ -7,9 +7,9 @@ public class MainApp {
 	public int pitch [][] = new int [6][7];				//picht[zeile][spalte]=Spieler der Platz besetzt
 	public int points [] = new int [7];			//in der Klammer der Array steht welche Spalte betrachtet wird und das Ergebniss das gespeichert wird sind die Anzahl Spielchips in der Spalte
 	private int coordinateX, coordinateY;
-	private int player;
+	private int player=0;
 	private String firstPlayer, secondPlayer;
-	private int countGames=0, winsFirstPlayer=0, winsSecondPlayer=0;
+	private int countGames=1, winsFirstPlayer=0, winsSecondPlayer=0;
 	
 	//Setzt dass in allen Spalten keine Spielsteine sind
 	private void initColumns() {
@@ -140,17 +140,14 @@ public class MainApp {
 		}
 	}
 	
-	//Mehoden für bind
-	public int bindColumn0() {
-		int value0 = 0;
-		if(getCoordinateX() == 0 && getCoordinateY() == 5) {
-			value0 = 10;
-		}
-		return value0;
-	}
-	
 	public void initPlayer() {
-		player=getCountGames();
+		if (getCountGames()%2==0)
+		{
+			player=1;
+		}
+		if (getCountGames()%2==1)  {
+			player=2;
+		}
 	}
 	
 	public int getCoordinateX() {
