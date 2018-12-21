@@ -112,16 +112,56 @@ public class RootLayout extends Application {
 			button[i] = new Button("#" +(i+1));
 			button[i].setFont(Font.font("Cambria", 10));
 			button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
-
-			button[i].setOnAction(event -> {	game.nextPlayer(player);
-			//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-												//game.refreshPitch(i, player);									//Fehlermeldung
-												if (game.searchingWinner()==true) {
-													popupWinner();
-												}
-			});
-
 		}
+
+		button[0].setOnAction(event -> {	game.nextPlayer(player);
+											game.refreshPitch(0, player);
+											if (game.searchingWinner()==true) {
+												popupWinner();
+											}
+		});
+
+		button[1].setOnAction(event -> {	game.nextPlayer(player);											
+											game.refreshPitch(1, player);
+											if (game.searchingWinner()==true) {
+												popupWinner();
+											}
+		});
+
+		button[2].setOnAction(event -> {	game.nextPlayer(player);
+											game.refreshPitch(2, player);
+											if (game.searchingWinner()==true) {
+												popupWinner();
+											}
+		});
+		
+		button[3].setOnAction(event -> {	game.nextPlayer(player);
+											game.refreshPitch(3, player);
+											if (game.searchingWinner()==true) {
+												popupWinner();
+											}
+		});
+
+		button[4].setOnAction(event -> {	game.nextPlayer(player);
+											game.refreshPitch(4, player);
+											if (game.searchingWinner()==true) {
+												popupWinner();
+											}
+		});
+
+		button[5].setOnAction(event -> {	game.nextPlayer(player);
+											game.refreshPitch(5, player);
+											if (game.searchingWinner()==true) {
+												popupWinner();
+											}
+		});
+
+		button[6].setOnAction(event -> {	game.nextPlayer(player);
+											game.refreshPitch(6, player);
+											if (game.searchingWinner()==true) {
+												popupWinner();
+											}
+		});
 		
 		//disable buttons if column is full
 		//button[0].disableProperty().(game.checkFullColumnTwo());
