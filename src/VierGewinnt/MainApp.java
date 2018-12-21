@@ -108,7 +108,7 @@ public class MainApp {
 		return win;
 	}
 	
-	//Setzt Spiel zurück
+	//Setzt Spiel zurueck
 	public void resetGame() {
 		initColumns();
 		initPitch();
@@ -165,6 +165,7 @@ public class MainApp {
 	public void setCoordinateY(int row1) {
 		this.coordinateY = row1;
 	}
+
 	public int getPlayer() {
 		return player;
 	}
@@ -180,9 +181,5 @@ public class MainApp {
 	public void setSecondPlayer(String secondPlayer) {
 		this.secondPlayer = secondPlayer;
 	}
-	
-
-
-
 
 }
