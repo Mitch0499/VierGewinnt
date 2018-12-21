@@ -53,6 +53,7 @@ public class RootLayout extends Application {
 	ArrayList<Line> values = new ArrayList<Line>();				//Arraylist for grid
 	BorderPane root = new BorderPane();							//Layout
 	Circle circle[][] = new Circle [7][6];
+	Button button[] = new Button[7];
 	
 	MainApp game = new MainApp();
 
@@ -61,7 +62,6 @@ public class RootLayout extends Application {
 		
 		root.setTop(createTopPane());
 		root.setCenter(createCenterPane());
-		root.setRight(getRightHBox());
 		root.setLeft(getLeftHBox());
 		root.setBottom(createBottomPane());						
 		root.setStyle("-fx-background-color: #ccebff;");
@@ -133,13 +133,13 @@ public class RootLayout extends Application {
 		}
 				
 		//Button
-				Button button[] = new Button[7];
 				HBox hbox;
 
 				for(int i=0; i<7; i++) {                                                             
 					button[i] = new Button("#" +(i+1));
 					button[i].setFont(Font.font("Cambria", 10));
 					button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
+					button[i].setMinSize(50, 25);
 				}
 
 				button[0].setOnAction(event -> {	game.nextPlayer();
@@ -147,9 +147,15 @@ public class RootLayout extends Application {
 													if (game.searchingWinner()==true) {
 														popupWinner();
 													}
+													if (game.lookingForDraw()==true) {
+														popupDraw();
+													}
 													circle[0][game.getCoordinateY()].setVisible(true);	
 													circle[0][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
 													circle[0][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
+													if (game.getCoordinateY()==0) {
+														button[0].setDisable(true);
+													}
 				});
 
 
@@ -158,9 +164,15 @@ public class RootLayout extends Application {
 													if (game.searchingWinner()==true) {
 														popupWinner();
 													}
+													if (game.lookingForDraw()==true) {
+														popupDraw();
+													}
 													circle[1][game.getCoordinateY()].setVisible(true);	
 													circle[1][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
 													circle[1][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
+													if (game.getCoordinateY()==0) {
+														button[1].setDisable(true);
+													}
 				});
 
 				button[2].setOnAction(event -> {	game.nextPlayer();
@@ -168,9 +180,15 @@ public class RootLayout extends Application {
 													if (game.searchingWinner()==true) {
 														popupWinner();
 													}
+													if (game.lookingForDraw()==true) {
+														popupDraw();
+													}
 													circle[2][game.getCoordinateY()].setVisible(true);	
 													circle[2][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
 													circle[2][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
+													if (game.getCoordinateY()==0) {
+														button[2].setDisable(true);
+													}
 				});
 				
 				button[3].setOnAction(event -> {	game.nextPlayer();
@@ -178,9 +196,15 @@ public class RootLayout extends Application {
 													if (game.searchingWinner()==true) {
 														popupWinner();
 													}
+													if (game.lookingForDraw()==true) {
+														popupDraw();
+													}
 													circle[3][game.getCoordinateY()].setVisible(true);	
 													circle[3][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
 													circle[3][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
+													if (game.getCoordinateY()==0) {
+														button[3].setDisable(true);
+													}
 				});
 
 				button[4].setOnAction(event -> {	game.nextPlayer();
@@ -188,9 +212,15 @@ public class RootLayout extends Application {
 													if (game.searchingWinner()==true) {
 														popupWinner();
 													}
+													if (game.lookingForDraw()==true) {
+														popupDraw();
+													}
 													circle[4][game.getCoordinateY()].setVisible(true);	
 													circle[4][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
 													circle[4][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
+													if (game.getCoordinateY()==0) {
+														button[4].setDisable(true);
+													}
 				});
 
 				button[5].setOnAction(event -> {	game.nextPlayer();
@@ -198,9 +228,15 @@ public class RootLayout extends Application {
 													if (game.searchingWinner()==true) {
 														popupWinner();
 													}
+													if (game.lookingForDraw()==true) {
+														popupDraw();
+													}
 													circle[5][game.getCoordinateY()].setVisible(true);	
 													circle[5][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
 													circle[5][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
+													if (game.getCoordinateY()==0) {
+														button[5].setDisable(true);
+													}
 				});
 
 				button[6].setOnAction(event -> {	game.nextPlayer();
@@ -208,32 +244,18 @@ public class RootLayout extends Application {
 													if (game.searchingWinner()==true) {
 														popupWinner();
 													}
+													if (game.lookingForDraw()==true) {
+														popupDraw();
+													}
 													circle[6][game.getCoordinateY()].setVisible(true);	
 													circle[6][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
 													circle[6][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
+													if (game.getCoordinateY()==0) {
+														button[6].setDisable(true);
+													}
 				});
-				
-				//disable buttons if column is full
-
-				//button[0].disableProperty().(game.checkFullColumnTwo());
-				//button.disableProperty().bind(buttonActionProperty.not());
-				//button[0].disableProperty().bind(Bindings.size(game.columnPoints(0)).greaterThan(4));
-				//button[0].setDisable(game.setCoordinateX() == 5);
-				//button[1].disableProperty().bind(game.points[1] == 6);
-
-				//button[0].disableProperty().bind(Bindings.equal(5, (ObservableNumberValue) game.observalbe(0)));
-				//button[0].disableProperty().bind(game.fullColumnOne());
-				
-				/*button[1].disableProperty().bind(game.points[1] == 6);
-
-				button[2].disableProperty().bind(game.points[2] == 6);
-				button[3].disableProperty().bind(game.points[3] == 6);
-				button[4].disableProperty().bind(game.points[4] == 6);
-				button[5].disableProperty().bind(game.points[5] == 6);
-
-				button[6].disableProperty().bind(game.points[6] == 6);*/
 		    
-				hbox = new HBox(45, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
+				hbox = new HBox(22, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
 				hbox.setAlignment(Pos.CENTER);
 				hbox.setPadding(new Insets(20, 10, 10, 10));
 		
@@ -243,37 +265,67 @@ public class RootLayout extends Application {
 		return vbox;
 	}
 
-	HBox getRightHBox()	{
+	GridPane getRightHBox()	{
+		Label text[] = new Label[6];
+		text[0] = new Label(game.getFirstPlayer());
+		text[1] = new Label(":");
+		text[2] = new Label(game.getSecondPlayer());
+		text[3] = new Label(Integer.toString(game.getWinsFirstPlayer()));
+		text[4] = new Label(":");
+		text[5] = new Label(Integer.toString(game.getWinsSecondPlayer()));
+		
+		GridPane gpane = new GridPane();
+		gpane.add(text[0], 0, 0);
+		gpane.add(text[1], 1, 0);
+		gpane.add(text[2], 2, 0);
+		gpane.add(text[3], 0, 1);
+		gpane.add(text[4], 1, 1);
+		gpane.add(text[5], 2, 1);
+		
+		for(int i=0; i<text.length; i++) {
+			text[i].setPadding(new Insets(10, 10, 10, 10));
+			text[i].setFont(new Font("ARIAL", 20));
+			text[i].setTextFill(Color.web("#000000"));
+			GridPane.setHalignment(text[i], HPos.CENTER);
+		}
+		
+		
 
-		Label resultat = new Label("Resultat");
-		resultat.setPadding(new Insets(40, 10, 10, 10));
-		resultat.setFont(new Font("ARIAL", 20));
-		resultat.setTextFill(Color.web("#000000"));
-
-		HBox hbox = new HBox(resultat);
-		return hbox;
+		
+		gpane.setAlignment(Pos.CENTER);
+		return gpane;
 	}
 
 	VBox getLeftHBox()	{
-		Label s1a = new Label("Spieler 1:");
-		s1a.setPadding(new Insets(10, 10, 10, 10));
-		s1a.setFont(new Font("ARIAL", 20));
-		s1a.setTextFill(Color.web("#000000"));
-		Label s1 = new Label(game.getFirstPlayer());
-		s1.setPadding(new Insets(10, 10, 10, 10));
-		s1.setFont(new Font("ARIAL", 20));
-		s1.setTextFill(Color.web("#000000"));
-
-		Label s2a = new Label("Spieler 2:");
-		s2a.setPadding(new Insets(10, 10, 10, 10));
-		s2a.setFont(new Font("ARIAL", 20));
-		s2a.setTextFill(Color.web("#000000"));
-		Label s2 = new Label(game.getSecondPlayer());
-		s2.setPadding(new Insets(10, 10, 10, 10));
-		s2.setFont(new Font("ARIAL", 20));
-		s2.setTextFill(Color.web("#000000"));
-
-		VBox vbox = new VBox(s1a,s1 , s2a, s2);
+		Label text [] = new Label [4];
+		text[0] = new Label("Spieler 1:");
+		text[1] = new Label(game.getFirstPlayer());
+		text[2] = new Label("Spieler 2:");
+		text[3] = new Label(game.getSecondPlayer());
+		
+		for (int i=0; i<4; i++) {
+			text[i].setPadding(new Insets(10, 10, 10, 10));
+			text[i].setFont(new Font("ARIAL", 20));
+			text[i].setTextFill(Color.web("#000000"));
+		}
+		/*
+		//Scene 2
+		Label text2 [] = new Label [4];
+		text2[0] = new Label("Spieler 1:");
+		text2[1] = new Label(game.getFirstPlayer());
+		text2[2] = new Label("Spieler 2:");
+		text2[3] = new Label(game.getSecondPlayer());
+		
+		for (int i=0; i<4; i++) {
+			text2[i].setPadding(new Insets(10, 10, 10, 10));
+			text2[i].setFont(new Font("ARIAL", 20));
+			text2[i].setTextFill(Color.web("#000000"));
+		}		
+		text2[3].setStyle("-fx-font-weight: bold");
+		
+				
+		*/
+		VBox vbox = new VBox(text[0], text[1] , text[2], text[3]);
 		vbox.setAlignment(Pos.CENTER);
 		return vbox;
 	}
@@ -283,6 +335,10 @@ public class RootLayout extends Application {
 		Button newGame = new Button("new Game");
 		newGame.setOnAction(event -> {	game.resetGame();
 										resetPitch();
+										for (int i=0; i<7; i++) {
+											button[i].setDisable(false);
+										}
+										root.setRight(getRightHBox());
 		});
 		Button exit = new Button("Exit");
 		exit.setOnAction(event -> {	game.exitGame();
@@ -303,10 +359,25 @@ public class RootLayout extends Application {
 		Label label2 = new Label();
 		if (game.getPlayer()==1) {
 			label2.setText(game.getFirstPlayer() + " hat gewonnen");
+			game.setWinsFirstPlayer(game.getWinsFirstPlayer()+1);
 		}
 		if (game.getPlayer()==2) {
 			label2.setText(game.getSecondPlayer() + " hat gewonnen");
+			game.setWinsSecondPlayer(game.getWinsSecondPlayer()+1);
 		}
+		VBox vbox = new VBox(20, label1, label2);
+		vbox.setAlignment(Pos.CENTER);
+		Scene windowScene = new Scene(vbox, 300, 200);
+		window.setScene(windowScene);
+		window.show();
+	}
+	
+	void popupDraw() {
+		Stage window = new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Vier Gewinnt Gewinner - Puissance Quatre gagneur");
+		Label label1 = new Label("Sie haben das Spiel beendet.");
+		Label label2 = new Label("Es steht unentschieden");
 		VBox vbox = new VBox(20, label1, label2);
 		vbox.setAlignment(Pos.CENTER);
 		Scene windowScene = new Scene(vbox, 300, 200);
@@ -334,6 +405,7 @@ public class RootLayout extends Application {
 			game.setSecondPlayer(textField2.getText().toString());
 			window.close();
 			root.setLeft(getLeftHBox());
+			root.setRight(getRightHBox());
 		});
 		Button button2 = new Button("Exit");
 		button2.setOnAction(event -> {	game.exitGame();
