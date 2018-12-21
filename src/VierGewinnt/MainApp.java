@@ -121,6 +121,15 @@ public class MainApp {
 		}
 	}
 	
+	//Mehoden für bind
+	public int bindColumn0() {
+		int value0 = 0;
+		if(getCoordinateX() == 0 && getCoordinateY() == 5) {
+			value0 = 10;
+		}
+		return value0;
+	}
+	
 	public void initPlayer() {
 		player=0;
 	}
