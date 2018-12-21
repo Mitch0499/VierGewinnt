@@ -19,10 +19,12 @@
 
 package View;
 	
+
 import java.util.ArrayList;
 
 import VierGewinnt.MainApp;
 import javafx.application.Application;
+import javafx.beans.binding.Bindings;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -30,6 +32,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -53,11 +56,10 @@ public class RootLayout extends Application {
 	MainApp game = new MainApp();
 
 	public void start(Stage primaryStage) {
-
-		int player = game.initPlayer();
+		game.initPlayer();
 		
 		root.setTop(createTopPane());
-		root.setCenter(createCenterPane(player));
+		root.setCenter(createCenterPane(game.getPlayer()));
 		root.setRight(getRightHBox());
 		root.setLeft(getLeftHBox());
 		root.setBottom(createBottomPane());						
@@ -69,6 +71,7 @@ public class RootLayout extends Application {
 		primaryStage.setTitle("Vier Gewinnt - Puissance Quatre");
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		popupSetNames();
 	}
 
 	public static void main(String[] args) {
@@ -113,7 +116,7 @@ public class RootLayout extends Application {
 			button[i].setFont(Font.font("Cambria", 10));
 			button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
 
-			button[i].setOnAction(event -> {	game.nextPlayer(player);
+			button[i].setOnAction(event -> {	game.nextPlayer();
 			//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 												//game.refreshPitch(i, player);									//Fehlermeldung
 												if (game.searchingWinner()==true) {
@@ -124,13 +127,15 @@ public class RootLayout extends Application {
 		}
 		
 		//disable buttons if column is full
-		button[0].disableProperty().bind(game.points[0] == 6);
-		button[1].disableProperty().bind(game.points[1] == 6);
+		//button[0].disableProperty().bind(Bindings.);
+		//button[0].disableProperty().bind(game.fullColumnOne());
+		
+		/*button[1].disableProperty().bind(game.points[1] == 6);
 		button[2].disableProperty().bind(game.points[2] == 6);
 		button[3].disableProperty().bind(game.points[3] == 6);
 		button[4].disableProperty().bind(game.points[4] == 6);
 		button[5].disableProperty().bind(game.points[5] == 6);
-		button[6].disableProperty().bind(game.points[6] == 6);
+		button[6].disableProperty().bind(game.points[6] == 6);*/
 		
 		hbox = new HBox(25, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
 		hbox.setAlignment(Pos.CENTER);
@@ -154,12 +159,13 @@ public class RootLayout extends Application {
 				point.setStroke(game.pointColor(player));   //Color of Point
 				//point.setFill(null);
 				point.setStrokeWidth(5);
-				gpane.add(point, game.getCoordinateX(), game.getCoordinateY());
+				
+				//gpane.add(point, game.getCoordinateX(), game.getCoordinateY());
 				GridPane.setHalignment(point, HPos.CENTER);
 				gpane.setAlignment(Pos.TOP_CENTER );
 			}  
 		}
-
+		
 		VBox vbox = new VBox();
 		vbox.getChildren().addAll(hbox, gpane);
 
@@ -178,18 +184,26 @@ public class RootLayout extends Application {
 	}
 
 	VBox getLeftHBox()	{
-
-		Label s1 = new Label("Spieler 1");
-		s1.setPadding(new Insets(40, 10, 10, 10));
+		Label s1a = new Label("Spieler 1:");
+		s1a.setPadding(new Insets(10, 10, 10, 10));
+		s1a.setFont(new Font("ARIAL", 20));
+		s1a.setTextFill(Color.web("#000000"));
+		Label s1 = new Label(game.getFirstPlayer());
+		s1.setPadding(new Insets(10, 10, 10, 10));
 		s1.setFont(new Font("ARIAL", 20));
 		s1.setTextFill(Color.web("#000000"));
 
-		Label s2 = new Label("Spieler 2");
+		Label s2a = new Label("Spieler 2:");
+		s2a.setPadding(new Insets(10, 10, 10, 10));
+		s2a.setFont(new Font("ARIAL", 20));
+		s2a.setTextFill(Color.web("#000000"));
+		Label s2 = new Label(game.getSecondPlayer());
 		s2.setPadding(new Insets(10, 10, 10, 10));
 		s2.setFont(new Font("ARIAL", 20));
 		s2.setTextFill(Color.web("#000000"));
 
-		VBox vbox = new VBox(s1, s2);
+		VBox vbox = new VBox(s1a,s1 , s2a, s2);
+		vbox.setAlignment(Pos.CENTER);
 		return vbox;
 	}
 
@@ -212,12 +226,67 @@ public class RootLayout extends Application {
 
 	void popupWinner() {
 		Stage window = new Stage();
-		window.initModality(Modality.APPLICATION_MODAL);		
-		Label label1 = new Label("Herzlichen Glückwunsch");
-		Label label2 = new Label("Spieler X hat gewonnen");
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Vier Gewinnt Gewinner - Puissance Quatre gagneur");
+		Label label1 = new Label("Herzlichen Glückwunsch!");
+		Label label2 = new Label();
+		if (game.getPlayer()==1) {
+			label2.setText(game.getFirstPlayer() + " hat gewonnen");
+		}
+		if (game.getPlayer()==2) {
+			label2.setText(game.getSecondPlayer() + " hat gewonnen");
+		}
 		VBox vbox = new VBox(20, label1, label2);
+		vbox.setAlignment(Pos.CENTER);
 		Scene windowScene = new Scene(vbox, 300, 200);
 		window.setScene(windowScene);
 		window.show();
+	}
+	
+	void popupSetNames() {
+		Stage window = new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Spieler eingabe");
+		Label label1 = new Label("Geben Sie die Namen der Spieler ein.");
+		label1.setAlignment(Pos.CENTER);
+		
+		Label label2 = new Label("Spieler 1: ");
+		Label label3 = new Label("Spieler 2: ");
+		TextField textField1 = new TextField();
+		textField1.setPromptText("Name player 1");
+		TextField textField2 = new TextField();
+		textField2.setPromptText("Name player 2");
+		Button button1 = new Button("Save");
+		button1.disableProperty().bind(Bindings.isEmpty(textField1.textProperty()).or(Bindings.isEmpty(textField2.textProperty())));
+		button1.setOnAction(event -> {
+			game.setFirstPlayer(textField1.getText().toString());
+			game.setSecondPlayer(textField2.getText().toString());
+			window.close();
+			root.setLeft(getLeftHBox());
+		});
+		Button button2 = new Button("Exit");
+		button2.setOnAction(event -> {	game.exitGame();
+		});
+				
+		GridPane grid = new GridPane();
+		grid.add(label2, 0, 0);
+		grid.add(label3, 0, 1);
+		grid.add(textField1, 1, 0);
+		grid.add(textField2, 1, 1);
+		grid.setHgap(10);
+		grid.setVgap(5);
+		
+		HBox hbox = new HBox(10, button1, button2);
+		hbox.setAlignment(Pos.BOTTOM_RIGHT);
+		
+		VBox vbox = new VBox(10, label1, grid, hbox);
+		vbox.setPadding(new Insets(10,10,10,10));
+		
+		
+		Scene windowScene = new Scene(vbox, 300, 140);
+		window.setScene(windowScene);
+		window.show();
+		
+	
 	}
 }
