@@ -4,8 +4,8 @@ import javafx.scene.paint.Color;
 
 public class MainApp {
 
-	int pitch [][] = new int [6][7];				//picht[zeile][spalte]=Spieler der Platz besetzt
-	int points [] = new int [7];			//in der Klammer der Array steht welche Spalte betrachtet wird und das Ergebniss das gespeichert wird sind die Anzahl Spielchips in der Spalte
+	public int pitch [][] = new int [6][7];				//picht[zeile][spalte]=Spieler der Platz besetzt
+	public int points [] = new int [7];			//in der Klammer der Array steht welche Spalte betrachtet wird und das Ergebniss das gespeichert wird sind die Anzahl Spielchips in der Spalte
 	private int coordinateX, coordinateY;
 	
 	//Setzt dasss in allen Spalten keien Spielsteine sind
@@ -82,7 +82,7 @@ public class MainApp {
 		return win;
 	}
 	
-	//Setzt Spiel zurück
+	//Setzt Spiel zurueck
 	public void resetGame() {
 		initColumns();
 		initPitch();
@@ -132,7 +132,5 @@ public class MainApp {
 	public void setCoordinateY(int row1) {
 		this.coordinateY = row1;
 	}
-
-
-
+	
 }

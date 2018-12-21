@@ -124,14 +124,18 @@ public class RootLayout extends Application {
 		}
 		
 		//disable buttons if column is full
-		button[0].disableProperty().bind(game.points[0] == 6);
+		//button[0].disableProperty().(game.checkFullColumnTwo());
+		//button.disableProperty().bind(buttonActionProperty.not());
+		//button[0].disableProperty().bind(Bindings.size(game.columnPoints(0)).greaterThan(4));
+		//button[0].setDisable(game.setCoordinateX() == 5);
+		/*
 		button[1].disableProperty().bind(game.points[1] == 6);
 		button[2].disableProperty().bind(game.points[2] == 6);
 		button[3].disableProperty().bind(game.points[3] == 6);
 		button[4].disableProperty().bind(game.points[4] == 6);
 		button[5].disableProperty().bind(game.points[5] == 6);
 		button[6].disableProperty().bind(game.points[6] == 6);
-		
+		*/
 		hbox = new HBox(25, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
 		hbox.setAlignment(Pos.CENTER);
 		hbox.setPadding(new Insets(20, 10, 10, 10));
