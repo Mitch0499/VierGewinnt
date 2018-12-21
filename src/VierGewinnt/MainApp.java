@@ -9,12 +9,14 @@ public class MainApp {
 	private int coordinateX, coordinateY;
 	private int player;
 	private String firstPlayer, secondPlayer;
+	private int countGames=0, winsFirstPlayer=0, winsSecondPlayer=0;
 	
 	//Setzt dasss in allen Spalten keien Spielsteine sind
 	private void initColumns() {
 		for (int i=0; i<points.length; i++) {
 			points[i]=0;			
 		}
+		setCountGames(getCountGames()+1);
 	}
 	
 	//Setzt dass kein Spieler einen Spielstein in einem Feld hat
@@ -34,6 +36,23 @@ public class MainApp {
 		setCoordinateX(column);
 		setCoordinateY(row);
 	}
+	
+	//Schaut ob es unentschieden steht
+	public boolean lookingForDraw() {
+		int counter = 0;
+		for (int column=0; column<7; column++) {
+			if (pitch[0][column]!=0) {
+				counter++;
+			}
+		}
+		if (counter==7) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	
 	//Sucht nach einem Gewinner indem nach 4 Spielsteinen in einer Reihe vom selben Spieler gesucht wird
 	public boolean searchingWinner() {
@@ -122,7 +141,7 @@ public class MainApp {
 	}
 	
 	public void initPlayer() {
-		player=0;
+		player=getCountGames();
 	}
 	
 	public int getCoordinateX() {
@@ -151,6 +170,30 @@ public class MainApp {
 	}
 	public void setSecondPlayer(String secondPlayer) {
 		this.secondPlayer = secondPlayer;
+	}
+
+	public int getCountGames() {
+		return countGames;
+	}
+
+	public void setCountGames(int countGames) {
+		this.countGames = countGames;
+	}
+
+	public int getWinsFirstPlayer() {
+		return winsFirstPlayer;
+	}
+
+	public void setWinsFirstPlayer(int winsFirstPlayer) {
+		this.winsFirstPlayer = winsFirstPlayer;
+	}
+
+	public int getWinsSecondPlayer() {
+		return winsSecondPlayer;
+	}
+
+	public void setWinsSecondPlayer(int winsSecondPlayer) {
+		this.winsSecondPlayer = winsSecondPlayer;
 	}
 
 }
