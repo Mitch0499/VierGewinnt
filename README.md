@@ -118,7 +118,19 @@ Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche
 ## Dokumentation Sprint 2
 
 #### Taskliste für die Umsetzung der User Stories
-
+| Tasknumme | Tasks | Userstory | Geschätzter Aufwand |
+|:-:|:-:|:-:|:-:|
+| 1 | Exit Button erstellen und mit Exit-Methode verknüpfen | 2 | 1,5 Stunden |
+| 2 | Neustart Button erstellen und mit Neustart-Methode verknüpfen | 2 | 2 Stunden |
+| 3 | Neues Fenster erstellen, dass bei jedem Start/Neustart erscheint | 3 | 1,5 Stunden |
+| 4 | Textfeld in Fenster einfügen um die 2 Namen hintereinander einzugeben | 3 | 1 Stunde |
+| 5 | Namen auf Oberfläche während des Spiels anzeigen lassen | 3 | 1,5 Stunden |
+| 6 | Klassendiagramm auf Eclipse erstellen  | 6 | 1 Stunde |
+| 7 | Dokumentation im MarkDown Format in der README Datei schreiben (Projektbeschreibung) | 6 | 4 Stunden |
+| 8 | Dokumentation im MarkDown Format in der README Datei schreiben (Sprint 1) | 6 | 3 Stunden |
+| 9 | Dokumentation im MarkDown Format in der README Datei schreiben (Sprint 2) | 6 | 3 Stunden |
+| 10 | Kommentare zum Programm hinzufügen | 6 | 1,5 Stunden |
+| 11 | Testklasse schreiben (JUnit) | 6 | 2,5 Stunden |
 #### Klassendiagramme
 
 #### Dokumentation wichtiger Code Snippets
