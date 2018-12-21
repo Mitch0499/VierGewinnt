@@ -142,127 +142,25 @@ public class RootLayout extends Application {
 				}
 
 				button[0].setOnAction(event -> {	setOnAction(0);
-													/*game.nextPlayer();
-													game.refreshPitch(0, game.getPlayer());
-													if (game.searchingWinner()==true) {
-														popupWinner();
-													}
-													if (game.lookingForDraw()==true) {
-														popupDraw();
-													}
-													circle[0][game.getCoordinateY()].setVisible(true);	
-													circle[0][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-													circle[0][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-													if (game.getCoordinateY()==0) {
-														button[0].setDisable(true);
-													}
-													markPlayer();*/
 				});
 
 
-				button[1].setOnAction(event -> {	setOnAction(1);/*game.nextPlayer();
-													game.refreshPitch(1, game.getPlayer());
-													if (game.searchingWinner()==true) {
-														popupWinner();
-													}
-													if (game.lookingForDraw()==true) {
-														popupDraw();
-													}
-													circle[1][game.getCoordinateY()].setVisible(true);	
-													circle[1][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-													circle[1][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-													if (game.getCoordinateY()==0) {
-														button[1].setDisable(true);
-													}
-
-													markPlayer();*/
-													
+				button[1].setOnAction(event -> {	setOnAction(1);						
 				});
 
 				button[2].setOnAction(event -> {	setOnAction(2);
-													/*game.nextPlayer();
-													game.refreshPitch(2, game.getPlayer());
-													if (game.searchingWinner()==true) {
-														popupWinner();
-													}
-													if (game.lookingForDraw()==true) {
-														popupDraw();
-													}
-													circle[2][game.getCoordinateY()].setVisible(true);	
-													circle[2][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-													circle[2][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-													if (game.getCoordinateY()==0) {
-														button[2].setDisable(true);
-													}
-													markPlayer();*/
 				});
 				
-				button[3].setOnAction(event -> {	setOnAction(3);/*game.nextPlayer();
-													game.refreshPitch(3, game.getPlayer());
-													if (game.searchingWinner()==true) {
-														popupWinner();
-													}
-													if (game.lookingForDraw()==true) {
-														popupDraw();
-													}
-													circle[3][game.getCoordinateY()].setVisible(true);	
-													circle[3][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-													circle[3][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-													if (game.getCoordinateY()==0) {
-														button[3].setDisable(true);
-													}
-													markPlayer();*/
+				button[3].setOnAction(event -> {	setOnAction(3);
 				});
 
-				button[4].setOnAction(event -> {	setOnAction(4);/*game.nextPlayer();
-													game.refreshPitch(4, game.getPlayer());
-													if (game.searchingWinner()==true) {
-														popupWinner();
-													}
-													if (game.lookingForDraw()==true) {
-														popupDraw();
-													}
-													circle[4][game.getCoordinateY()].setVisible(true);	
-													circle[4][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-													circle[4][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-													if (game.getCoordinateY()==0) {
-														button[4].setDisable(true);
-													}
-													markPlayer();*/
+				button[4].setOnAction(event -> {	setOnAction(4);
 				});
 
-				button[5].setOnAction(event -> {	setOnAction(5);/*game.nextPlayer();
-													game.refreshPitch(5, game.getPlayer());
-													if (game.searchingWinner()==true) {
-														popupWinner();
-													}
-													if (game.lookingForDraw()==true) {
-														popupDraw();
-													}
-													circle[5][game.getCoordinateY()].setVisible(true);	
-													circle[5][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-													circle[5][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-													if (game.getCoordinateY()==0) {
-														button[5].setDisable(true);
-													}
-													markPlayer();*/
+				button[5].setOnAction(event -> {	setOnAction(5);
 				});
 
-				button[6].setOnAction(event -> {	setOnAction(6);/*game.nextPlayer();
-													game.refreshPitch(6, game.getPlayer());
-													if (game.searchingWinner()==true) {
-														popupWinner();
-													}
-													if (game.lookingForDraw()==true) {
-														popupDraw();
-													}
-													circle[6][game.getCoordinateY()].setVisible(true);	
-													circle[6][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-													circle[6][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-													if (game.getCoordinateY()==0) {
-														button[6].setDisable(true);
-													}
-													markPlayer();*/
+				button[6].setOnAction(event -> {	setOnAction(6);
 				});
 		    
 				hbox = new HBox(22, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
