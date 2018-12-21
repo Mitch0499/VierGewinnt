@@ -127,8 +127,10 @@ public class RootLayout extends Application {
 		}
 		
 		//disable buttons if column is full
-		/*button[0].disableProperty().bind(game.fullColumnOne());
-		button[1].disableProperty().bind(game.points[1] == 6);
+		//button[0].disableProperty().bind(Bindings.);
+		//button[0].disableProperty().bind(game.fullColumnOne());
+		
+		/*button[1].disableProperty().bind(game.points[1] == 6);
 		button[2].disableProperty().bind(game.points[2] == 6);
 		button[3].disableProperty().bind(game.points[3] == 6);
 		button[4].disableProperty().bind(game.points[4] == 6);
