@@ -119,7 +119,7 @@ public class RootLayout extends Application {
 
 		button[0].setOnAction(event -> {	game.nextPlayer();
 											game.refreshPitch(0, game.getPlayer());
-											if (game.searchingWinner()==true) {
+											if (game.searchingWinner()) {
 												popupWinner();
 											}
 		});
@@ -127,52 +127,50 @@ public class RootLayout extends Application {
 
 		button[1].setOnAction(event -> {	game.nextPlayer();											
 											game.refreshPitch(1, game.getPlayer());
-											if (game.searchingWinner()==true) {
+											if (game.searchingWinner()) {
 												popupWinner();
 											}
 		});
 
 		button[2].setOnAction(event -> {	game.nextPlayer();
 											game.refreshPitch(2, game.getPlayer());
-											if (game.searchingWinner()==true) {
+											if (game.searchingWinner()) {
 												popupWinner();
 											}
 		});
 		
 		button[3].setOnAction(event -> {	game.nextPlayer();
 											game.refreshPitch(3, game.getPlayer());
-											if (game.searchingWinner()==true) {
+											if (game.searchingWinner()) {
 												popupWinner();
 											}
 		});
 
 		button[4].setOnAction(event -> {	game.nextPlayer();
 											game.refreshPitch(4, game.getPlayer());
-											if (game.searchingWinner()==true) {
+											if (game.searchingWinner()) {
 												popupWinner();
 											}
 		});
 
 		button[5].setOnAction(event -> {	game.nextPlayer();
 											game.refreshPitch(5, game.getPlayer());
-											if (game.searchingWinner()==true) {
+											if (game.searchingWinner()) {
 												popupWinner();
 											}
 		});
 
 		button[6].setOnAction(event -> {	game.nextPlayer();
 											game.refreshPitch(6, game.getPlayer());
-											if (game.searchingWinner()==true) {
+											if (game.searchingWinner()) {
 												popupWinner();
 											}
 		});
 		
 		//disable buttons if column is full
 
-		//button[0].disableProperty().(game.checkFullColumnTwo());
-		//button.disableProperty().bind(buttonActionProperty.not());
-		//button[0].disableProperty().bind(Bindings.size(game.columnPoints(0)).greaterThan(4));
-		//button[0].setDisable(game.setCoordinateX() == 5);
+		
+		//button[0].disableProperty().bind(arg0);
 		/*
 		button[1].disableProperty().bind(game.points[1] == 6);
 
@@ -188,7 +186,7 @@ public class RootLayout extends Application {
 
 		button[6].disableProperty().bind(game.points[6] == 6);*/
     
-		hbox = new HBox(25, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
+		hbox = new HBox(45, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
 		hbox.setAlignment(Pos.CENTER);
 		hbox.setPadding(new Insets(20, 10, 10, 10));
 
