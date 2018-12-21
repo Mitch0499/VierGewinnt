@@ -4,14 +4,14 @@ import javafx.scene.paint.Color;
 
 public class MainApp {
 
-	public int pitch [][] = new int [6][7];				//picht[zeile][spalte]=Spieler der Platz besetzt
-	public int points [] = new int [7];			//in der Klammer der Array steht welche Spalte betrachtet wird und das Ergebniss das gespeichert wird sind die Anzahl Spielchips in der Spalte
+	public int pitch [][] = new int [6][7];				//picht[row][column] = Player occupys place
+	public int points [] = new int [7];					//points[column] = amount of points in column
 	private int coordinateX, coordinateY;
 	private int player;
 	private String firstPlayer, secondPlayer;
 	private int countGames=0, winsFirstPlayer=0, winsSecondPlayer=0;
 	
-	//Setzt dass in allen Spalten keine Spielsteine sind
+	//ensure that no points are in the columns
 	private void initColumns() {
 		for (int i=0; i<points.length; i++) {
 			points[i]=0;			
@@ -19,7 +19,7 @@ public class MainApp {
 		setCountGames(getCountGames()+1);
 	}
 	
-	//Setzt dass kein Spieler einen Spielstein in einem Feld hat
+	//ensure that no one has points on playground
 	private void initPitch() {
 		for (int i=0; i<6; i++) {
 			for (int j=0; j<7; j++) {
@@ -28,7 +28,7 @@ public class MainApp {
 		}
 	}
 	
-	//Zaehlt die Anzahl Spielsteine hoch und speichert welcher Spieler in welchem Feld den Stein gesetzt hat
+	//count the points, save which Player place points in rectangle
 	public void refreshPitch(int column, int player) {
 		points[column]++;
 		int row = 6-points[column];
@@ -37,7 +37,7 @@ public class MainApp {
 		setCoordinateY(row);
 	}
 	
-	//Schaut ob es unentschieden steht
+	//tie game
 	public boolean lookingForDraw() {
 		int counter = 0;
 		for (int column=0; column<7; column++) {
@@ -54,10 +54,10 @@ public class MainApp {
 	}
 	
 	
-	//Sucht nach einem Gewinner indem nach 4 Spielsteinen in einer Reihe vom selben Spieler gesucht wird
+	//looks for four points in a row
 	public boolean searchingWinner() {
 		boolean win = false;
-		//horizontal 4er Reihe
+		//horizontal line
 		for (int row=0; row<6; row++) {
 			for (int column=0; column<4; column++) {
 				if ((pitch[row][column]==pitch[row][column+1])&&
@@ -68,7 +68,7 @@ public class MainApp {
 				}
 			}
 		}
-		//vertikal 4er Reihe
+		//vertical line
 		for (int column=0; column<7; column++) {
 			for (int row=0; row<3; row++) {
 				if ((pitch[row][column]==pitch[row+1][column])&&
@@ -80,7 +80,7 @@ public class MainApp {
 			}
 		}
 		
-		//diagnoal von links unten nach rechts oben 4er Reihe
+		//diagnoal, left top to bottom right line
 		for (int row=3; row<6; row++) {
 			for (int column=0; column<4; column++) {
 				if ((pitch[row][column]==pitch[row-1][column+1])&&
@@ -92,7 +92,7 @@ public class MainApp {
 			}
 		}
 		
-		//diagonal von rechts unten nach links oben 4er Reihe
+		//diagonal, right top to bottom left line
 		for (int row=0; row<3; row++) {
 			for (int column=0; column<4; column++) {
 				if ((pitch[row][column]==pitch[row+1][column+1])&&
@@ -107,19 +107,19 @@ public class MainApp {
 		return win;
 	}
 	
-	//Setzt Spiel zurueck
+	//reset game
 	public void resetGame() {
 		initColumns();
 		initPitch();
 		initPlayer();
 	}
 	
-	//Schliesst Fenster
+	//close all windows
 	public void exitGame() {
 		System.exit(0);
 	}
   
-  //Point Color
+	//Player Point Color
 	public Color pointColor(int player) {
 		if(player == 1) {
 			return Color.RED;
@@ -140,19 +140,12 @@ public class MainApp {
 		}
 	}
 	
-	//Mehoden für bind
-	public int bindColumn0() {
-		int value0 = 0;
-		if(getCoordinateX() == 0 && getCoordinateY() == 5) {
-			value0 = 10;
-		}
-		return value0;
-	}
-	
+	//alternately Player start
 	public void initPlayer() {
 		player=getCountGames();
 	}
 	
+	//Getter & Setter
 	public int getCoordinateX() {
 		return coordinateX;
 	}

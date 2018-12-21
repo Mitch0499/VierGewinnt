@@ -11,10 +11,12 @@
  * Kilian Vallotton
  * 
  * Projekt:
- * Programmiern eines "Vier Gewinnt-Puissance quatre" mit JavaFX auf Eclipse. 
- * Zudem wird das Projekt mittels SCUM durchgeführt und in 3 Sprints aufgeteilt.
+ * Anwenden von JavaFX Programmierung
+ * Anwenden von SCRUM Projektführung
+ * Anwenden von GitHub Projektführung
+ * Anwenden von Maven
  * 
- * Fertigstellungsdatum: 22.12.2018
+ * Fertigstellungsdatum: 22.12.2018, 23.55
  */
 
 package View;
@@ -33,8 +35,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -71,8 +72,12 @@ public class RootLayout extends Application {
 
 		Scene scene = new Scene(root, 800, 700);
 
-		primaryStage.setTitle("Vier Gewinnt - Puissance Quatre");
+		primaryStage.setTitle("Connect Four");
 		primaryStage.setScene(scene);
+		
+		//Set the application icon
+		primaryStage.getIcons().add(new Image("file:///C:/Users/kiki1/git/VierGewinnt/resources/images/iconfinder_Games_BoardGames_Artboard_28_3828857.png"));
+		
 		primaryStage.show();
 		popupSetNames();
 	}
@@ -83,7 +88,7 @@ public class RootLayout extends Application {
 
 	Pane createTopPane() {
 		
-		Label l1 = new Label("VIER GEWINNT - PUISSANCE QUATRE");
+		Label l1 = new Label("CONNECT FOUR");
 		l1.setPadding(new Insets(10, 10, 10, 10));
 		l1.setFont(new Font("ALGERIAN", 35));
 		l1.setTextFill(Color.web("BLUE"));
