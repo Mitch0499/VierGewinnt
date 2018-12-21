@@ -1,10 +1,5 @@
 package VierGewinnt;
 
-import javafx.beans.Observable;
-import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.value.ObservableNumberValue;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.paint.Color;
 
 public class MainApp {
@@ -39,21 +34,6 @@ public class MainApp {
 		setCoordinateX(column);
 		setCoordinateY(row);
 	}
-	
-	/*//Searching full Columns
-	public Observable observalbe (int column) {
-		ObservableValue<Integer> obsInt = new SimpleIntegerProperty(column).asObject();
-		return obsInt;
-	}
-	
-	public boolean searchingFullColumns (int column) {
-		if (points[column]==5) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}*/
 	
 	//Sucht nach einem Gewinner indem nach 4 Spielsteinen in einer Reihe vom selben Spieler gesucht wird
 	public boolean searchingWinner() {
@@ -141,14 +121,6 @@ public class MainApp {
 		}
 	}
 	
-	public boolean fullColumnOne() {
-		if(points[0] == 6) {
-			return true;
-		}else {
-			return false;
-		}
-	}
-	
 	public void initPlayer() {
 		player=0;
 	}
@@ -165,7 +137,6 @@ public class MainApp {
 	public void setCoordinateY(int row1) {
 		this.coordinateY = row1;
 	}
-
 	public int getPlayer() {
 		return player;
 	}
