@@ -64,7 +64,7 @@ Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spie
 
 ## User Stories
 | **Userstory Nr.** |   **Userstories / Akzeptanzkriterien**  | **Storypoints**  |  **Priorität** |
-|---|-----|---|---|
+|:-:|-----|:-:|:-:|
 | 1  | Als Benutzer möchte ich eine Spalte auswählen um einen Spielstein zu platzieren.<br/>AK: Wahl zwischen 7 Spalten durch Buttons | 8 | 1 |
 | 2  |   Als Benutzer möchte ich das Spiel neustarten und verlassen können.<br/>AK: Neustart und Exit durch Buttons  | 3 | 2 |
 | 3  |   Als Benutzer möchte ich die Namen für die 2 Spieler eingeben können.<br/>AK: Texteingabefeld welches bei jedem Start/Neustart erscheint und in den Namen vom Spieler 1 und 2 hintereinander abfragt  | 5 | 3 |
@@ -84,7 +84,16 @@ Legende : US = Userstory
 ## Dokumentation Sprint 1
 ![Bild Oberfläche1](Bilder/Oberfläche1.PNG)
 #### Taskliste für die Umsetzung der User Stories
-
+| Tasknummer | Tasks | Userstory | Geschätzter Aufwand |
+|:-:|:-:|:-:|:-:|
+| 1 | Grafisches Layout erstellen | 1 | 2,5 Stunden |
+| 2 | Reihen und Spalten zum Spiel erstellen | 1 | 30 Minuten |
+| 3 | 7 Buttons hinzufügen, die zu den zugehörigen Spalten gehören | 1 | 20 Minuten |
+| 4 | Das Setzen von Spielsteinen abwechselnd ermöglichen | 1 | 3 Stunden |
+| 5 | Methode zum Suchen nach Gewinner erstellen (vertikal, horizontal und diagonal) | 4 | 3 Stunden |
+| 6 | Abwechselnd die Schrift des aktiven Spielers mit einer für ihn vordefinierte Farbe darstellen | 5 | 45 Minuten |
+| 7 | Neues Fenster erstellen, welches sich nach einem Sieg öffnet | 4 | 1,5 Stunden |
+| 8 | Namen des Gewinners im Fenster anzeigen | 4 | 1 Stunde |
 #### Klassendiagramme
 
 Das Klassendiagramm:
@@ -102,6 +111,11 @@ Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche
 ![Bild Oberfläche1](Bilder/Oberfläche1.PNG)
 
 #### Testfaelle in Bezug auf Akzeptanzkritierium
+| Testfall | Aus US/AK | Vorbedingung | Ablauf | Resultat |
+|:-:|:-:|:-:|:-:|:-:|
+| 1 | 1 | Das Spiel wurde gestartet und die Oberfläche ist bereit | Klicke auf beliebigen Knopf zwischen 1-7 | Der Spielstein erscheint an der untersten Stelle der gewählten Reihe |
+| 2 | 4 | Der Spieler muss noch einen Stein setzen um zu gewinnen | Klicke auf den notwendigen Knopf um zu gewinnen | Der Spieler bekommt in einem neuen Fenster angezeigt, dass er gewonnen hat |
+| 3 | 5 | Das Spiel wurde gestartet nach jedem Wechsel des Spielers am Zug | Sobald ein Spieler am Zug ist | Der Spieler, der am Zug ist bekommt durch einen Farbwechsel auf seinen Namen angezeigt, dass er an der Reihe ist |
 ## Dokumentation Sprint 2
 
 #### Taskliste für die Umsetzung der User Stories
@@ -111,3 +125,8 @@ Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche
 #### Dokumentation wichtiger Code Snippets
 
 #### Testfaelle in Bezug auf Akzeptanzkritierium
+| Testfall | Aus US/AK | Vorbedingung | Ablauf | Resultat |
+|:-:|:-:|:-:|:-:|:-:|
+| 1 | 2 | Das Programm wurde gestartet | Klicke auf den Knopf „Neustart“ Klicke auf den Knopf „Exit“ | Das Spiel wird neugestartet Das Spiel wird beendet |
+| 2 | 6 | Das Programm soll durch Features verbessert werden | Programmiere den zu hinzufügenden Teil | Das Spiel läuft ohne Probleme mit den neuen Features |
+| 3 | 3 | Das Spiel wurde gestartet Das Spiel wurde neugestartet | Trage die Namen der 2 Spieler in die Textfelder ein und bestätige  | Die Namen werden während dieses Spiels angezeigt  |
