@@ -11,14 +11,16 @@
  * Kilian Vallotton
  * 
  * Projekt:
- * Programmiern eines "Vier Gewinnt-Puissance quatre" mit JavaFX auf Eclipse. 
- * Zudem wird das Projekt mittels SCUM durchgeführt und in 3 Sprints aufgeteilt.
+ * Anwenden von JavaFX Programmierung
+ * Anwenden von SCRUM Projektführung
+ * Anwenden von GitHub Projektführung
+ * Anwenden von Maven
  * 
- * Fertigstellungsdatum: 22.12.2018
+ * Fertigstellungsdatum: 22.12.2018, 23.55
  */
 
 package View;
-	
+
 
 import java.util.ArrayList;
 
@@ -33,6 +35,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -49,16 +53,17 @@ import javafx.stage.Stage;
 
 
 public class RootLayout extends Application { 
-	
+
 	ArrayList<Line> values = new ArrayList<Line>();				//Arraylist for grid
-	BorderPane root = new BorderPane();							//Layout
-	Circle circle[][] = new Circle [7][6];
-	Button button[] = new Button[7];
-	Label text [] = new Label [4];
+	BorderPane root = new BorderPane();							//Layout with Borderpane
+	Circle circle[][] = new Circle [7][6];						//Points for gaming piece
+	Button button[] = new Button[7];							//setOnAction the gaming pieces
+	Label text [] = new Label [4];                //Label for showing whose turn it is
 	
 	MainApp game = new MainApp();
 
 	public void start(Stage primaryStage) {
+    
 		root.setTop(createTopPane());
 		root.setCenter(createCenterPane());
 		root.setLeft(getLeftHBox());
@@ -66,10 +71,14 @@ public class RootLayout extends Application {
 		root.setStyle("-fx-background-color: #ccebff;");
 
 
-		Scene scene = new Scene(root, 800, 700);
+		Scene scene = new Scene(root, 850, 700);
 
-		primaryStage.setTitle("Vier Gewinnt - Puissance Quatre");
+		primaryStage.setTitle("Connect Four");
 		primaryStage.setScene(scene);
+
+		//Set the application icon
+		primaryStage.getIcons().add(new Image("file:///C:/Users/kiki1/git/VierGewinnt/resources/images/iconfinder_Games_BoardGames_Artboard_28_3828857.png"));
+
 		primaryStage.show();
 		popupSetNames();
 	}
@@ -79,8 +88,8 @@ public class RootLayout extends Application {
 	}
 
 	Pane createTopPane() {
-		
-		Label l1 = new Label("VIER GEWINNT - PUISSANCE QUATRE");
+
+		Label l1 = new Label("CONNECT FOUR");
 		l1.setPadding(new Insets(10, 10, 10, 10));
 		l1.setFont(new Font("ALGERIAN", 35));
 		l1.setTextFill(Color.web("BLUE"));
@@ -103,11 +112,12 @@ public class RootLayout extends Application {
 		hbox.getChildren().add(l1);
 		hbox.setAlignment(Pos.CENTER);
 		return hbox;
+
 	}
 
 	Pane createCenterPane() {
 
-		//Playground
+		//Playground Grid & Points
 		GridPane gpane = new GridPane();
 		for (int column = 0; column < 6; column++)
 		{
@@ -130,7 +140,7 @@ public class RootLayout extends Application {
 				gpane.setAlignment(Pos.TOP_CENTER );
 			}  
 		}
-				
+
 		//Button
 				HBox hbox;
 
@@ -166,7 +176,7 @@ public class RootLayout extends Application {
 				hbox = new HBox(22, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
 				hbox.setAlignment(Pos.CENTER);
 				hbox.setPadding(new Insets(20, 10, 10, 10));
-		
+    
 		VBox vbox = new VBox();
 		vbox.getChildren().addAll(hbox, gpane);
 
@@ -199,7 +209,7 @@ public class RootLayout extends Application {
 		text[3] = new Label(Integer.toString(game.getWinsFirstPlayer()));
 		text[4] = new Label(":");
 		text[5] = new Label(Integer.toString(game.getWinsSecondPlayer()));
-		
+
 		GridPane gpane = new GridPane();
 		gpane.add(text[0], 0, 0);
 		gpane.add(text[1], 1, 0);
@@ -207,14 +217,14 @@ public class RootLayout extends Application {
 		gpane.add(text[3], 0, 1);
 		gpane.add(text[4], 1, 1);
 		gpane.add(text[5], 2, 1);
-		
+
 		for(int i=0; i<text.length; i++) {
 			text[i].setPadding(new Insets(10, 10, 10, 10));
 			text[i].setFont(new Font("ARIAL", 20));
 			text[i].setTextFill(Color.web("#000000"));
 			GridPane.setHalignment(text[i], HPos.CENTER);
 		}
-	
+
 		gpane.setAlignment(Pos.CENTER);
 		return gpane;
 	}
@@ -224,12 +234,13 @@ public class RootLayout extends Application {
 		text[1] = new Label(game.getFirstPlayer());
 		text[2] = new Label("Spieler 2:");
 		text[3] = new Label(game.getSecondPlayer());
-		
+
 		for (int i=0; i<4; i++) {
 			text[i].setPadding(new Insets(10, 10, 10, 10));
 			text[i].setFont(new Font("ARIAL", 20));
 			text[i].setTextFill(Color.web("#000000"));
 		}
+
 		text[1].setFont(Font.font("Arial",30));
 		
 		VBox vbox = new VBox(text[0], text[1] , text[2], text[3]);
@@ -256,18 +267,20 @@ public class RootLayout extends Application {
 
 		Button newGame = new Button("new Game");
 		newGame.setOnAction(event -> {	game.resetGame();
+
 										resetPitch();
 										for (int i=0; i<7; i++) {
 											button[i].setDisable(false);
 										}
 										root.setRight(getRightHBox());
 										markPlayer();
+
 		});
 		Button exit = new Button("Exit");
 		exit.setOnAction(event -> {	game.exitGame();
 		});
-		
-		
+
+
 		HBox hbox = new HBox(20, newGame, exit);
 		hbox.setPadding(new Insets(20, 20, 20, 20));
 		hbox.setAlignment(Pos.CENTER_RIGHT);
@@ -294,7 +307,7 @@ public class RootLayout extends Application {
 		window.setScene(windowScene);
 		window.show();
 	}
-	
+
 	void popupDraw() {
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
@@ -307,14 +320,14 @@ public class RootLayout extends Application {
 		window.setScene(windowScene);
 		window.show();
 	}
-	
+
 	void popupSetNames() {
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle("Spieler eingabe");
 		Label label1 = new Label("Geben Sie die Namen der Spieler ein.");
 		label1.setAlignment(Pos.CENTER);
-		
+
 		Label label2 = new Label("Spieler 1: ");
 		Label label3 = new Label("Spieler 2: ");
 		TextField textField1 = new TextField();
@@ -324,12 +337,12 @@ public class RootLayout extends Application {
 		Button button1 = new Button("Save");
 		button1.disableProperty().bind(Bindings.isEmpty(textField1.textProperty()).or(Bindings.isEmpty(textField2.textProperty())));
 		button1.setOnKeyPressed(event -> {	switch(event.getCode()) {
-											case ENTER:
-												game.setFirstPlayer(textField1.getText().toString());
-												game.setSecondPlayer(textField2.getText().toString());
-												window.close();
-												root.setLeft(getLeftHBox());
-												root.setRight(getRightHBox());
+					                   						case ENTER:
+							                  					game.setFirstPlayer(textField1.getText().toString());
+											                  	game.setSecondPlayer(textField2.getText().toString());
+											                  	window.close();
+											                  	root.setLeft(getLeftHBox());
+											                  	root.setRight(getRightHBox());
 		};									
 		});	
 		button1.setOnAction(event -> {
@@ -341,13 +354,13 @@ public class RootLayout extends Application {
 		});
 		Button button2 = new Button("Exit");
 		button2.setOnKeyPressed(event -> {	switch(event.getCode()) {
-											case ENTER:
-												game.exitGame();
+		case ENTER:
+			game.exitGame();
 		};									
 		});
 		button2.setOnAction(event -> {	game.exitGame();
 		});
-				
+
 		GridPane grid = new GridPane();
 		grid.add(label2, 0, 0);
 		grid.add(label3, 0, 1);
@@ -355,19 +368,19 @@ public class RootLayout extends Application {
 		grid.add(textField2, 1, 1);
 		grid.setHgap(10);
 		grid.setVgap(5);
-		
+
 		HBox hbox = new HBox(10, button1, button2);
 		hbox.setAlignment(Pos.BOTTOM_RIGHT);
-		
+
 		VBox vbox = new VBox(10, label1, grid, hbox);
 		vbox.setPadding(new Insets(10,10,10,10));
-		
-		
+
+
 		Scene windowScene = new Scene(vbox, 300, 140);
 		window.setScene(windowScene);
 		window.show();
 	}
-	
+
 	public void resetPitch() {
 		for (int i=0; i<7; i++) {
 			for (int j=0; j<6; j++) {
