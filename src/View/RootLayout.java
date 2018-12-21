@@ -36,6 +36,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -57,12 +58,12 @@ public class RootLayout extends Application {
 	BorderPane root = new BorderPane();							//Layout with Borderpane
 	Circle circle[][] = new Circle [7][6];						//Points for gaming piece
 	Button button[] = new Button[7];							//setOnAction the gaming pieces
-
+	Label text [] = new Label [4];                //Label for showing whose turn it is
+	
 	MainApp game = new MainApp();
 
 	public void start(Stage primaryStage) {
-		game.initPlayer();
-
+    
 		root.setTop(createTopPane());
 		root.setCenter(createCenterPane());
 		root.setLeft(getLeftHBox());
@@ -140,135 +141,64 @@ public class RootLayout extends Application {
 			}  
 		}
 
-		//Button to move the Points
-		for(int i=0; i<7; i++) {                                                             
-			button[i] = new Button("#" +(i+1));
-			button[i].setFont(Font.font("Cambria", 10));
-			button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
-			button[i].setMinSize(50, 25);
-		}
+		//Button
+				HBox hbox;
 
-		button[0].setOnAction(event -> {	game.nextPlayer();
-		game.refreshPitch(0, game.getPlayer());
-		if (game.searchingWinner()==true) {
-			popupWinner();
-		}
-		if (game.lookingForDraw()==true) {
-			popupDraw();
-		}
-		circle[0][game.getCoordinateY()].setVisible(true);	
-		circle[0][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-		circle[0][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-		if (game.getCoordinateY()==0) {
-			button[0].setDisable(true);
-		}
-		});
+				for(int i=0; i<7; i++) {                                                             
+					button[i] = new Button("#" +(i+1));
+					button[i].setFont(Font.font("Cambria", 10));
+					button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
+					button[i].setMinSize(50, 25);
+				}
+
+				button[0].setOnAction(event -> {	setOnAction(0);
+				});
 
 
-		button[1].setOnAction(event -> {	game.nextPlayer();											
-		game.refreshPitch(1, game.getPlayer());
-		if (game.searchingWinner()==true) {
-			popupWinner();
-		}
-		if (game.lookingForDraw()==true) {
-			popupDraw();
-		}
-		circle[1][game.getCoordinateY()].setVisible(true);	
-		circle[1][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-		circle[1][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-		if (game.getCoordinateY()==0) {
-			button[1].setDisable(true);
-		}
-		});
+				button[1].setOnAction(event -> {	setOnAction(1);						
+				});
 
-		button[2].setOnAction(event -> {	game.nextPlayer();
-		game.refreshPitch(2, game.getPlayer());
-		if (game.searchingWinner()==true) {
-			popupWinner();
-		}
-		if (game.lookingForDraw()==true) {
-			popupDraw();
-		}
-		circle[2][game.getCoordinateY()].setVisible(true);	
-		circle[2][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-		circle[2][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-		if (game.getCoordinateY()==0) {
-			button[2].setDisable(true);
-		}
-		});
+				button[2].setOnAction(event -> {	setOnAction(2);
+				});
+				
+				button[3].setOnAction(event -> {	setOnAction(3);
+				});
 
-		button[3].setOnAction(event -> {	game.nextPlayer();
-		game.refreshPitch(3, game.getPlayer());
-		if (game.searchingWinner()==true) {
-			popupWinner();
-		}
-		if (game.lookingForDraw()==true) {
-			popupDraw();
-		}
-		circle[3][game.getCoordinateY()].setVisible(true);	
-		circle[3][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-		circle[3][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-		if (game.getCoordinateY()==0) {
-			button[3].setDisable(true);
-		}
-		});
+				button[4].setOnAction(event -> {	setOnAction(4);
+				});
 
-		button[4].setOnAction(event -> {	game.nextPlayer();
-		game.refreshPitch(4, game.getPlayer());
-		if (game.searchingWinner()==true) {
-			popupWinner();
-		}
-		if (game.lookingForDraw()==true) {
-			popupDraw();
-		}
-		circle[4][game.getCoordinateY()].setVisible(true);	
-		circle[4][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-		circle[4][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-		if (game.getCoordinateY()==0) {
-			button[4].setDisable(true);
-		}
-		});
+				button[5].setOnAction(event -> {	setOnAction(5);
+				});
 
-		button[5].setOnAction(event -> {	game.nextPlayer();
-		game.refreshPitch(5, game.getPlayer());
-		if (game.searchingWinner()==true) {
-			popupWinner();
-		}
-		if (game.lookingForDraw()==true) {
-			popupDraw();
-		}
-		circle[5][game.getCoordinateY()].setVisible(true);	
-		circle[5][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-		circle[5][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-		if (game.getCoordinateY()==0) {
-			button[5].setDisable(true);
-		}
-		});
-
-		button[6].setOnAction(event -> {	game.nextPlayer();
-		game.refreshPitch(6, game.getPlayer());
-		if (game.searchingWinner()==true) {
-			popupWinner();
-		}
-		if (game.lookingForDraw()==true) {
-			popupDraw();
-		}
-		circle[6][game.getCoordinateY()].setVisible(true);	
-		circle[6][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
-		circle[6][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
-		if (game.getCoordinateY()==0) {
-			button[6].setDisable(true);
-		}
-		});
-
-		HBox hbox = new HBox(22, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
-		hbox.setAlignment(Pos.CENTER);
-		hbox.setPadding(new Insets(20, 10, 10, 10));
-
+				button[6].setOnAction(event -> {	setOnAction(6);
+				});
+		    
+				hbox = new HBox(22, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
+				hbox.setAlignment(Pos.CENTER);
+				hbox.setPadding(new Insets(20, 10, 10, 10));
+    
 		VBox vbox = new VBox();
 		vbox.getChildren().addAll(hbox, gpane);
 
 		return vbox;
+	}
+	
+	void setOnAction(int buttonNumber) {
+		game.nextPlayer();
+		game.refreshPitch(buttonNumber, game.getPlayer());
+		if (game.searchingWinner()==true) {
+			popupWinner();
+		}
+		if (game.lookingForDraw()==true) {
+			popupDraw();
+		}
+		circle[buttonNumber][game.getCoordinateY()].setVisible(true);	
+		circle[buttonNumber][game.getCoordinateY()].setStroke(game.pointColor(game.getPlayer()));
+		circle[buttonNumber][game.getCoordinateY()].setFill(game.pointColor(game.getPlayer()));
+		if (game.getCoordinateY()==0) {
+			button[buttonNumber].setDisable(true);
+		}
+		markPlayer();
 	}
 
 	GridPane getRightHBox()	{
@@ -295,15 +225,11 @@ public class RootLayout extends Application {
 			GridPane.setHalignment(text[i], HPos.CENTER);
 		}
 
-
-
-
 		gpane.setAlignment(Pos.CENTER);
 		return gpane;
 	}
 
 	VBox getLeftHBox()	{
-		Label text [] = new Label [4];
 		text[0] = new Label("Spieler 1:");
 		text[1] = new Label(game.getFirstPlayer());
 		text[2] = new Label("Spieler 2:");
@@ -314,37 +240,41 @@ public class RootLayout extends Application {
 			text[i].setFont(new Font("ARIAL", 20));
 			text[i].setTextFill(Color.web("#000000"));
 		}
-		/*
-		//Scene 2
-		Label text2 [] = new Label [4];
-		text2[0] = new Label("Spieler 1:");
-		text2[1] = new Label(game.getFirstPlayer());
-		text2[2] = new Label("Spieler 2:");
-		text2[3] = new Label(game.getSecondPlayer());
 
-		for (int i=0; i<4; i++) {
-			text2[i].setPadding(new Insets(10, 10, 10, 10));
-			text2[i].setFont(new Font("ARIAL", 20));
-			text2[i].setTextFill(Color.web("#000000"));
-		}		
-		text2[3].setStyle("-fx-font-weight: bold");
-
-
-		 */
+		text[1].setFont(Font.font("Arial",30));
+		
 		VBox vbox = new VBox(text[0], text[1] , text[2], text[3]);
 		vbox.setAlignment(Pos.CENTER);
 		return vbox;
+	}
+	
+	void markPlayer() {
+		if (game.getPlayer()==2) {
+			text[1].setFont(Font.font("Arial", 30));
+			text[3].setFont(Font.font("Arial", 20));
+			//text[1].setStyle("-fx-font-weight: bold");
+			//text[3].setStyle("-fx-font-weight: regular");
+		}
+		if (game.getPlayer()==1) {
+			text[1].setFont(Font.font("Arial", 20));
+			text[3].setFont(Font.font("Arial", 30));
+			//text[1].setStyle("-fx-font-weight: regular");
+			//text[3].setStyle("-fx-font-weight: bold");
+		}
 	}
 
 	HBox createBottomPane() {
 
 		Button newGame = new Button("new Game");
 		newGame.setOnAction(event -> {	game.resetGame();
-		resetPitch();
-		for (int i=0; i<7; i++) {
-			button[i].setDisable(false);
-		}
-		root.setRight(getRightHBox());
+
+										resetPitch();
+										for (int i=0; i<7; i++) {
+											button[i].setDisable(false);
+										}
+										root.setRight(getRightHBox());
+										markPlayer();
+
 		});
 		Button exit = new Button("Exit");
 		exit.setOnAction(event -> {	game.exitGame();
@@ -407,11 +337,12 @@ public class RootLayout extends Application {
 		Button button1 = new Button("Save");
 		button1.disableProperty().bind(Bindings.isEmpty(textField1.textProperty()).or(Bindings.isEmpty(textField2.textProperty())));
 		button1.setOnKeyPressed(event -> {	switch(event.getCode()) {
-		case ENTER:
-			game.setFirstPlayer(textField1.getText().toString());
-			game.setSecondPlayer(textField2.getText().toString());
-			window.close();
-			root.setLeft(getLeftHBox());
+					                   						case ENTER:
+							                  					game.setFirstPlayer(textField1.getText().toString());
+											                  	game.setSecondPlayer(textField2.getText().toString());
+											                  	window.close();
+											                  	root.setLeft(getLeftHBox());
+											                  	root.setRight(getRightHBox());
 		};									
 		});	
 		button1.setOnAction(event -> {

@@ -7,9 +7,9 @@ public class MainApp {
 	public int pitch [][] = new int [6][7];				//picht[row][column] = Player occupys place
 	public int points [] = new int [7];					//points[column] = amount of points in column
 	private int coordinateX, coordinateY;
-	private int player;
+	private int player=0;
 	private String firstPlayer, secondPlayer;
-	private int countGames=0, winsFirstPlayer=0, winsSecondPlayer=0;
+	private int countGames=1, winsFirstPlayer=0, winsSecondPlayer=0;
 	
 	//ensure that no points are in the columns
 	private void initColumns() {
@@ -141,8 +141,15 @@ public class MainApp {
 	}
 	
 	//alternately Player start
+
 	public void initPlayer() {
-		player=getCountGames();
+		if (getCountGames()%2==0)
+		{
+			player=1;
+		}
+		if (getCountGames()%2==1)  {
+			player=2;
+		}
 	}
 	
 	//Getter & Setter

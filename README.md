@@ -93,6 +93,9 @@ Legende : US = Userstory
 | 6 | Abwechselnd die Schrift des aktiven Spielers mit einer für ihn vordefinierte Farbe darstellen | 5 | 45 Minuten |
 | 7 | Neues Fenster erstellen, welches sich nach einem Sieg öffnet | 4 | 1,5 Stunden |
 | 8 | Namen des Gewinners im Fenster anzeigen | 4 | 1 Stunde |
+| 9 | Neues Fenster erstellen, welches sich bei einem Unentschieden öffnet | 4 | 2 Stunden |
+| 10 | Button auf inaktiv stellen sobald die zugehörige Spalte voll ist | 1 | 2,5 Stunden |
+
 #### Klassendiagramme
 
 Das Klassendiagramm:
