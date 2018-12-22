@@ -1,5 +1,5 @@
 /*
- * Projektarbeit Programmieren II
+ * Projektarbeit Programmieren II / Software Engineering
  * 
  * Betreuer:
  * Matthias Bachmann
@@ -16,7 +16,7 @@
  * Anwenden von GitHub Projektführung
  * Anwenden von Maven
  * 
- * Fertigstellungsdatum: 22.12.2018, 23.55
+ * Fertigstellungsdatum: 23.12.2018, 23.55
  */
 
 package View;
@@ -36,7 +36,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -160,26 +161,61 @@ public class RootLayout extends Application {
 
 		button[0].setOnAction(event -> {	setOnAction(0);
 		});
-
+		root.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+			if (KeyCode.DIGIT1 == event.getCode()&&game.points[0]!=6) {
+				setOnAction(0);
+			}
+		});
 
 		button[1].setOnAction(event -> {	setOnAction(1);						
+		});
+		root.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+			if (KeyCode.DIGIT2 == event.getCode()&&game.points[1]!=6) {
+				setOnAction(1);
+			}
 		});
 
 		button[2].setOnAction(event -> {	setOnAction(2);
 		});
+		root.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+			if (KeyCode.DIGIT3 == event.getCode()&&game.points[2]!=6) {
+				setOnAction(2);
+			}
+		});
 
 		button[3].setOnAction(event -> {	setOnAction(3);
+		});
+		root.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+			if (KeyCode.DIGIT4 == event.getCode()&&game.points[3]!=6) {
+				setOnAction(3);
+			}
 		});
 
 		button[4].setOnAction(event -> {	setOnAction(4);
 		});
+		root.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+			if (KeyCode.DIGIT5 == event.getCode()&&game.points[4]!=6) {
+				setOnAction(4);
+			}
+		});
 
 		button[5].setOnAction(event -> {	setOnAction(5);
+		});
+		root.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+			if (KeyCode.DIGIT6 == event.getCode()&&game.points[5]!=6) {
+				setOnAction(5);
+			}
 		});
 
 		button[6].setOnAction(event -> {	setOnAction(6);
 		});
-		
+    
+		root.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+			if (KeyCode.DIGIT7 == event.getCode()&&game.points[6]!=6) {
+				setOnAction(6);
+			}
+		});
+
 		HBox hbox = new HBox(22, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
 		hbox.setAlignment(Pos.CENTER);
 		hbox.setPadding(new Insets(20, 10, 10, 10));
@@ -190,14 +226,15 @@ public class RootLayout extends Application {
 		return vbox;
 	}
 	
-	//Mehtod of setOnAction of the Buttons
+	//Method of setOnAction of the Buttons
 	void setOnAction(int buttonNumber) {
 		game.nextPlayer();
 		game.refreshPitch(buttonNumber, game.getPlayer());
 		if (game.searchingWinner()==true) {
+			stopButton();
 			popupWinner();
 		}
-		if (game.lookingForDraw()==true) {
+		else if (game.lookingForDraw()==true) {
 			popupDraw();
 		}
 		circle[buttonNumber][game.getCoordinateY()].setVisible(true);	
@@ -285,15 +322,24 @@ public class RootLayout extends Application {
 		newGame.setTextFill(Color.web("#5D4E84"));
 		newGame.setStyle("-fx-background-color: #b2b2ff"); 	
 		newGame.setOnAction(event -> {	game.resetGame();
-
-		resetPitch();
-		for (int i=0; i<7; i++) {
-			button[i].setDisable(false);
-		}
-		root.setRight(getRightHBox());
-		markPlayer();
-
+										resetPitch();
+										for (int i=0; i<7; i++) {
+											button[i].setDisable(false);
+										}
+										root.setRight(getRightHBox());
+										markPlayer();
 		});
+		newGame.setOnKeyPressed(event -> {	switch(event.getCode()) {
+		case ENTER:
+										game.resetGame();
+										resetPitch();
+										for (int i=0; i<7; i++) {
+											button[i].setDisable(false);
+										}
+										root.setRight(getRightHBox());
+										markPlayer();
+			};									
+		});	
 		
 		//Button for Exit Game
 		Button exit = new Button("Exit");
@@ -311,6 +357,15 @@ public class RootLayout extends Application {
 		initial.setTextFill(Color.web("#5D4E84"));
 		
 		HBox hbox = new HBox(20, initial, newGame, exit);
+
+		exit.setOnKeyPressed(event -> {	switch(event.getCode()) {
+		case ENTER:
+			game.exitGame();
+			};									
+		});	
+		
+		HBox hbox = new HBox(20, newGame, exit);
+
 		hbox.setPadding(new Insets(20, 20, 20, 20));
 		hbox.setAlignment(Pos.CENTER_RIGHT);
 		return hbox;
@@ -407,7 +462,7 @@ public class RootLayout extends Application {
 		window.setScene(windowScene);
 		window.show();
 	}
-
+  
 	//Window which shows winner
 	void popupWinner() {
 		
@@ -448,6 +503,13 @@ public class RootLayout extends Application {
 		Scene windowScene = new Scene(gpane , 450, 300);
 		window.setScene(windowScene);
 		window.show();
+    
+    	
+		window.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+			if (KeyCode.ENTER == event.getCode()) {
+				window.close();
+			}
+		});
 	}
 
 	//Window when drawn game
@@ -480,6 +542,12 @@ public class RootLayout extends Application {
 		Scene windowScene = new Scene(gpane, 450, 300);
 		window.setScene(windowScene);
 		window.show();
+  
+  window.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+			if (KeyCode.ENTER == event.getCode()) {
+				window.close();
+			}
+		});
 	}
 
 	//Disable all points
@@ -489,5 +557,16 @@ public class RootLayout extends Application {
 				circle[i][j].setVisible(false);
 			}
 		}
+  }
+	
+	//Disable all Buttons when the game is finished
+	void stopButton() {
+		button[0].setDisable(true);
+		button[1].setDisable(true);
+		button[2].setDisable(true);
+		button[3].setDisable(true);
+		button[4].setDisable(true);
+		button[5].setDisable(true);
+		button[6].setDisable(true);
 	}
 }
