@@ -112,6 +112,10 @@ Erstellen der Button mit einem Exemplar des setOnAction (mit Maus und Taste):
 
 ![Bild Button](Bilder/Button.png)
 
+Die Nachricht, um den Gewinner zu definieren :
+
+![GewinnerNachricht](Bilder/GewinnerNachricht.png)
+
 Unser Mainprogram: 
 
 Die erstellten Buttons:
