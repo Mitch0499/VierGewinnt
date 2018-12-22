@@ -38,10 +38,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -67,11 +71,12 @@ public class RootLayout extends Application {
 		root.setTop(createTopPane());
 		root.setCenter(createCenterPane());
 		root.setLeft(getLeftHBox());
+		root.setRight(getRightHBox());
 		root.setBottom(createBottomPane());						
-		root.setStyle("-fx-background-color: #ccebff;");
+		root.setStyle("-fx-background-color: #e5e5ff;");
+		//EFEFFF
 
-
-		Scene scene = new Scene(root, 850, 700);
+		Scene scene = new Scene(root, 1000, 700);
 
 		primaryStage.setTitle("Connect Four");
 		primaryStage.setScene(scene);
@@ -91,20 +96,21 @@ public class RootLayout extends Application {
 
 		Label l1 = new Label("CONNECT FOUR");
 		l1.setPadding(new Insets(10, 10, 10, 10));
-		l1.setFont(new Font("ALGERIAN", 35));
-		l1.setTextFill(Color.web("BLUE"));
+		l1.setStyle("-fx-font-weight: bold");
+		l1.setFont(new Font("Bernard MT Condensed", 40));
+		l1.setTextFill(Color.web("#0000FF"));
 		l1.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent e) {
-				l1.setScaleX(1.1);
-				l1.setScaleY(1.1);
+				l1.setScaleX(2.5);
+				l1.setScaleY(1.3);
 			}
 		});
 		l1.setOnMouseExited(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent e) {
-				l1.setScaleX(1);
-				l1.setScaleY(1);
+				l1.setScaleX(2);
+				l1.setScaleY(1.1);
 			}
 		});
 
@@ -125,8 +131,9 @@ public class RootLayout extends Application {
 			{
 				//Grid
 				Rectangle rect = new Rectangle(70, 70);
-				rect.setStroke(Color.BLACK);
+				rect.setStroke(Color.BLUE);
 				rect.setFill(null);
+				rect.setStrokeWidth(3);
 				gpane.add(rect, row, column);
 
 				//Points
@@ -140,12 +147,14 @@ public class RootLayout extends Application {
 				gpane.setAlignment(Pos.TOP_CENTER );
 			}  
 		}
-
+		
 		//Button to place the Points
 		for(int i=0; i<7; i++) {                                                             
 			button[i] = new Button("#" +(i+1));
-			button[i].setFont(Font.font("Cambria", 10));
-			button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
+			button[i].setFont(Font.font("Bernard MT Condensed", 15));
+			button[i].setTextFill(Color.web("#5D4E84"));
+			//background color of button
+			button[i].setStyle("-fx-background-color: #b2b2ff"); 	
 			button[i].setMinSize(50, 25);
 		}
 
@@ -170,7 +179,7 @@ public class RootLayout extends Application {
 
 		button[6].setOnAction(event -> {	setOnAction(6);
 		});
-
+		
 		HBox hbox = new HBox(22, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
 		hbox.setAlignment(Pos.CENTER);
 		hbox.setPadding(new Insets(20, 10, 10, 10));
@@ -221,49 +230,50 @@ public class RootLayout extends Application {
 
 		for(int i=0; i<text.length; i++) {
 			text[i].setPadding(new Insets(10, 10, 10, 10));
-			text[i].setFont(new Font("ARIAL", 20));
-			text[i].setTextFill(Color.web("#000000"));
+			text[i].setFont(new Font("Bernard MT Condensed", 20));
+			text[i].setTextFill(Color.web("#5D4E84"));
 			GridPane.setHalignment(text[i], HPos.CENTER);
 		}
 
 		gpane.setAlignment(Pos.CENTER);
+		gpane.setMinSize(200, 500);
 		return gpane;
 	}
 
 	VBox getLeftHBox()	{
 		
 		//set Name of Player to number of Player
-		text[0] = new Label("Spieler 1:");
+		text[0] = new Label("Player 1:");
 		text[1] = new Label(game.getFirstPlayer());
-		text[2] = new Label("Spieler 2:");
+		text[2] = new Label("Player 2:");
 		text[3] = new Label(game.getSecondPlayer());
 
 		for (int i=0; i<4; i++) {
 			text[i].setPadding(new Insets(10, 10, 10, 10));
-			text[i].setFont(new Font("ARIAL", 20));
-			text[i].setTextFill(Color.web("#000000"));
+			text[i].setFont(new Font("Bernard MT Condensed", 20));
+			text[i].setTextFill(Color.web("#5D4E84"));
 		}
 
-		text[1].setFont(Font.font("Arial",30));
+		text[1].setFont(Font.font("Bernard MT Condensed",30));
+		text[1].setTextFill(Color.RED);
 
 		VBox vbox = new VBox(text[0], text[1] , text[2], text[3]);
 		vbox.setAlignment(Pos.CENTER);
+		vbox.setMinWidth(200);
 		return vbox;
 	}
 
 	//define which Player have to play
 	void markPlayer() {
 		if (game.getPlayer()==2) {
-			text[1].setFont(Font.font("Arial", 30));
-			text[3].setFont(Font.font("Arial", 20));
-			//text[1].setStyle("-fx-font-weight: bold");
-			//text[3].setStyle("-fx-font-weight: regular");
+			text[1].setFont(Font.font("Bernard MT Condensed", 30));
+			text[1].setTextFill(Color.RED);
+			text[3].setFont(Font.font("Bernard MT Condensed", 20));
 		}
 		if (game.getPlayer()==1) {
-			text[1].setFont(Font.font("Arial", 20));
-			text[3].setFont(Font.font("Arial", 30));
-			//text[1].setStyle("-fx-font-weight: regular");
-			//text[3].setStyle("-fx-font-weight: bold");
+			text[1].setFont(Font.font("Bernard MT Condensed", 20));
+			text[3].setFont(Font.font("Bernard MT Condensed", 30));
+			text[3].setTextFill(Color.GREEN);
 		}
 	}
 
@@ -271,6 +281,9 @@ public class RootLayout extends Application {
 
 		//Button for new Game
 		Button newGame = new Button("new Game");
+		newGame.setFont(Font.font("Bernard MT Condensed", 20));
+		newGame.setTextFill(Color.web("#5D4E84"));
+		newGame.setStyle("-fx-background-color: #b2b2ff"); 	
 		newGame.setOnAction(event -> {	game.resetGame();
 
 		resetPitch();
@@ -284,58 +297,23 @@ public class RootLayout extends Application {
 		
 		//Button for Exit Game
 		Button exit = new Button("Exit");
+		exit.setFont(Font.font("Bernard MT Condensed", 20));
+		exit.setTextFill(Color.web("#5D4E84"));
+		exit.setStyle("-fx-background-color: #b2b2ff"); 	
 		exit.setOnAction(event -> {	game.exitGame();
 		});
-
-
-		HBox hbox = new HBox(20, newGame, exit);
+		
+		//Initials of the Crew
+		Label initial = new Label("TL-KV-YS-CP");
+		initial.setPadding(new Insets(0, 680, -15, 0));
+		initial.setAlignment(Pos.BASELINE_LEFT);
+		initial.setFont(Font.font("Bernard MT Condensed", 15));
+		initial.setTextFill(Color.web("#5D4E84"));
+		
+		HBox hbox = new HBox(20, initial, newGame, exit);
 		hbox.setPadding(new Insets(20, 20, 20, 20));
 		hbox.setAlignment(Pos.CENTER_RIGHT);
 		return hbox;
-	}
-
-	//Window which shows winner
-	void popupWinner() {
-		Stage window = new Stage();
-		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("Connect Four");
-		
-		//Set the application icon
-		window.getIcons().add(new Image("file:///C:/Users/kiki1/git/VierGewinnt/resources/images/iconfinder_Games_BoardGames_Artboard_28_3828857.png"));
-		
-		Label label1 = new Label("Congratulations");
-		Label label2 = new Label();
-		if (game.getPlayer()==1) {
-			label2.setText(game.getFirstPlayer() + " wins the game");
-			game.setWinsFirstPlayer(game.getWinsFirstPlayer()+1);
-		}
-		if (game.getPlayer()==2) {
-			label2.setText(game.getSecondPlayer() + " wins the game");
-			game.setWinsSecondPlayer(game.getWinsSecondPlayer()+1);
-		}
-		VBox vbox = new VBox(20, label1, label2);
-		vbox.setAlignment(Pos.CENTER);
-		Scene windowScene = new Scene(vbox, 300, 200);
-		window.setScene(windowScene);
-		window.show();
-	}
-
-	//Window when drawn game
-	void popupDraw() {
-		Stage window = new Stage();
-		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("Connect Four");
-		
-		//Set the application icon
-		window.getIcons().add(new Image("file:///C:/Users/kiki1/git/VierGewinnt/resources/images/iconfinder_Games_BoardGames_Artboard_28_3828857.png"));
-		
-		Label label1 = new Label("The game is over");
-		Label label2 = new Label("Its a draw game");
-		VBox vbox = new VBox(20, label1, label2);
-		vbox.setAlignment(Pos.CENTER);
-		Scene windowScene = new Scene(vbox, 300, 200);
-		window.setScene(windowScene);
-		window.show();
 	}
 
 	//Window to enter the name of players
@@ -348,17 +326,30 @@ public class RootLayout extends Application {
 		window.getIcons().add(new Image("file:///C:/Users/kiki1/git/VierGewinnt/resources/images/iconfinder_Games_BoardGames_Artboard_28_3828857.png"));
 		
 		Label label1 = new Label("Enter name of player");
+		label1.setFont(new Font("Bernard MT Condensed", 20));
+		label1.setTextFill(Color.web("#5D4E84"));
 		label1.setAlignment(Pos.CENTER);
-
+	
 		Label label2 = new Label("Player 1: ");
+		label2.setFont(new Font("Bernard MT Condensed", 20));
+		label2.setTextFill(Color.web("#5D4E84"));
+		
 		Label label3 = new Label("Player 2: ");
+		label3.setFont(new Font("Bernard MT Condensed", 20));
+		label3.setTextFill(Color.web("#5D4E84"));
+		
 		TextField textField1 = new TextField();
 		textField1.setPromptText("name player 1");
+		textField1.setFont(Font.font("Bernard MT Condensed", 20));
 		TextField textField2 = new TextField();
+		textField2.setFont(Font.font("Bernard MT Condensed", 20));
 		textField2.setPromptText("name player 2");
 		
 		//Button save
 		Button button1 = new Button("Save");
+		button1.setFont(Font.font("Bernard MT Condensed", 20));
+		button1.setTextFill(Color.web("#5D4E84"));
+		button1.setStyle("-fx-background-color: #b2b2ff"); 	
 		button1.disableProperty().bind(Bindings.isEmpty(textField1.textProperty()).or(Bindings.isEmpty(textField2.textProperty())));
 		//setOnKeyPressed with Enter for button save
 		button1.setOnKeyPressed(event -> {	switch(event.getCode()) {
@@ -381,6 +372,9 @@ public class RootLayout extends Application {
 		
 		//Button Exit
 		Button button2 = new Button("Exit");
+		button2.setFont(Font.font("Bernard MT Condensed", 20));
+		button2.setTextFill(Color.web("#5D4E84"));
+		button2.setStyle("-fx-background-color: #b2b2ff"); 	
 		//setOnKeyPressed with Enter for button exit
 		button2.setOnKeyPressed(event -> {	switch(event.getCode()) {
 		case ENTER:
@@ -390,7 +384,7 @@ public class RootLayout extends Application {
 		//setOnAction with Mouse for button exit
 		button2.setOnAction(event -> {	game.exitGame();
 		});
-
+	
 		GridPane grid = new GridPane();
 		grid.add(label2, 0, 0);
 		grid.add(label3, 0, 1);
@@ -398,15 +392,92 @@ public class RootLayout extends Application {
 		grid.add(textField2, 1, 1);
 		grid.setHgap(10);
 		grid.setVgap(5);
-
+	
 		HBox hbox = new HBox(10, button1, button2);
 		hbox.setAlignment(Pos.BOTTOM_RIGHT);
-
+	
 		VBox vbox = new VBox(10, label1, grid, hbox);
 		vbox.setPadding(new Insets(10,10,10,10));
+		
+		//set Background color
+		Pane pane = new Pane(vbox);
+		pane.setStyle("-fx-background-color: #e5e5ff;");
+	
+		Scene windowScene = new Scene(pane, 330, 200);
+		window.setScene(windowScene);
+		window.show();
+	}
 
+	//Window which shows winner
+	void popupWinner() {
+		
+		GridPane gpane = new GridPane();
+		Stage window = new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Connect Four");
+		
+		//Set the application icon
+		window.getIcons().add(new Image("file:///C:/Users/kiki1/git/VierGewinnt/resources/images/iconfinder_Games_BoardGames_Artboard_28_3828857.png"));
+		
+		Label label1 = new Label("Congratulations");
+		label1.setFont(new Font("Bernard MT Condensed", 50));
+		label1.setTextFill(Color.web("#5D4E84"));
+		label1.setScaleX(1.3);
+		label1.setScaleY(1);
+		gpane.add(label1, 0, 0);
+		
+		Label label2 = new Label();
+		if (game.getPlayer()==1) {
+			label2.setText(game.getFirstPlayer() + " wins the game");
+			game.setWinsFirstPlayer(game.getWinsFirstPlayer()+1);
+		}
+		if (game.getPlayer()==2) {
+			label2.setText(game.getSecondPlayer() + " wins the game");
+			game.setWinsSecondPlayer(game.getWinsSecondPlayer()+1);
+		}
+		label2.setFont(new Font("Bernard MT Condensed", 20));
+		label2.setTextFill(Color.web("#5D4E84"));
+		gpane.add(label2, 0, 1);
+		
+		//set Background color
+		gpane.setStyle("-fx-background-color: #e5e5ff;");
+		gpane.setAlignment(Pos.CENTER);
+		GridPane.setHalignment(label1, HPos.CENTER);
+		GridPane.setHalignment(label2, HPos.CENTER);
+		
+		Scene windowScene = new Scene(gpane , 450, 300);
+		window.setScene(windowScene);
+		window.show();
+	}
 
-		Scene windowScene = new Scene(vbox, 300, 140);
+	//Window when drawn game
+	void popupDraw() {
+		GridPane gpane = new GridPane();
+		Stage window = new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle("Connect Four");
+		
+		//Set the application icon
+		window.getIcons().add(new Image("file:///C:/Users/kiki1/git/VierGewinnt/resources/images/iconfinder_Games_BoardGames_Artboard_28_3828857.png"));
+		
+		Label label1 = new Label("Game Over");
+		label1.setFont(new Font("Bernard MT Condensed", 45));
+		label1.setTextFill(Color.web("#5D4E84"));
+		gpane.add(label1, 0, 0);
+		
+		Label label2 = new Label("It's a draw game");
+		label2.setFont(new Font("Bernard MT Condensed", 20));
+		label2.setTextFill(Color.web("#5D4E84"));
+		gpane.add(label2, 0, 1);
+		
+		
+		//set Background color
+		gpane.setStyle("-fx-background-color: #e5e5ff;");
+		gpane.setAlignment(Pos.CENTER);
+		GridPane.setHalignment(label1, HPos.CENTER);
+		GridPane.setHalignment(label2, HPos.CENTER);
+		
+		Scene windowScene = new Scene(gpane, 450, 300);
 		window.setScene(windowScene);
 		window.show();
 	}
