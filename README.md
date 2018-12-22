@@ -105,7 +105,12 @@ Für das Klassendiagramm haben wir am Anfang 2 Klassen. Eine Mainklasse in der u
 
 #### Dokumentation wichtiger Code Snippets
 Erstellen des Gitters und füllen mit ausgeblendeten Punkten :
+
 ![Bild Gitter](Bilder/Gitter.PNG)
+
+Erstellen der button mit einem Exemplar des setOnAction (mit Maus und Taste):
+
+![Bild Button](Bilder/Button.png)
 
 Unser Mainprogram: 
 
