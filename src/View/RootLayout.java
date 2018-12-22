@@ -68,6 +68,7 @@ public class RootLayout extends Application {
 		root.setTop(createTopPane());
 		root.setCenter(createCenterPane());
 		root.setLeft(getLeftHBox());
+		root.setRight(getRightHBox());
 		root.setBottom(createBottomPane());						
 		root.setStyle("-fx-background-color: #ccebff;");
 
