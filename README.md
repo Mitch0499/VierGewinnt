@@ -187,7 +187,7 @@ Save button zum Speichern der Spielernamen (setOnAction mit Mause und Taste)
 
 ![Bild SaveButton](Bilder/SaveButton.png)
 
-JUnit: testet ob es erkennt, dass es ein Gewinner gibt
+JUnit Test: Erkennt ob es ein Gewinner gibt
 
 ![Bild JUnit1](Bilder/JUnit1.png)
 
