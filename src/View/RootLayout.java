@@ -380,6 +380,7 @@ public class RootLayout extends Application {
 
 	//Window when drawn game
 	void popupDraw() {
+		
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle("Connect Four");
@@ -393,7 +394,7 @@ public class RootLayout extends Application {
 		vbox.setAlignment(Pos.CENTER);
 		Scene windowScene = new Scene(vbox, 300, 200);
 		window.setScene(windowScene);
-		window.show();
+		window.show();		
 		
 		window.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
 			if (KeyCode.ENTER == event.getCode()) {
