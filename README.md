@@ -92,7 +92,7 @@ starten Sie das Programm.
 
 ## Kurze Bedienungsanleitung
 
-Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spiels. Sie werden erkennen, dass das Spiel in 6 Reihen und 7 Spalten aufgebaut ist. Die typischen Regeln eines Vier Gewinnt Spiels sind folgende: Das Spiel wird im eins gegen eins Modus gespielt. Jeder Spieler bekommt eine Farbe von Spielsteinen, mit denen er versuchen soll, eine Reihe von 4 Spielsteinen hintereinander seiner Farbe zu bekommen. Dies kann horizontal, vertikal oder auch diagonal erreicht werden. Sobald der Spieler eine solche Viererreihe erreicht, hat er gewonnen und das Spiel kann erneut gestartet werden. 
+Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spiels. Sie werden erkennen, dass das Spiel in 6 Reihen und 7 Spalten aufgebaut ist. Die typischen Regeln eines Vier Gewinnt Spiels sind folgende: Das Spiel wird im eins gegen eins Modus gespielt. Jeder Spieler bekommt eine Farbe von Spielsteinen, mit denen er versuchen soll, eine Reihe von 4 Spielsteinen hintereinander seiner Farbe zu bekommen. Dies kann horizontal, vertikal oder auch diagonal erreicht werden. Sobald der Spieler eine solche Viererreihe erreicht, hat er gewonnen und das Spiel kann erneut gestartet werden. Die Bedienung des Spiels funktionniert mittels Mausklick aber auch mittels Tasteneingaben. 
 
 ## User Stories
 | **Userstory Nr.** |   **Userstories / Akzeptanzkriterien**  | **Storypoints**  |  **Priorität** |
@@ -118,16 +118,18 @@ Legende : US = Userstory
 #### Taskliste für die Umsetzung der User Stories
 | Tasknummer | Tasks | Userstory | Geschätzter Aufwand |
 |:-:|-----|:-:|:-:|
-| 1 | Grafisches Layout erstellen | 1 | 2,5 Stunden |
-| 2 | Reihen und Spalten zum Spiel erstellen | 1 | 30 Minuten |
-| 3 | 7 Buttons hinzufügen, die zu den zugehörigen Spalten gehören | 1 | 20 Minuten |
-| 4 | Das Setzen von Spielsteinen abwechselnd ermöglichen | 1 | 3 Stunden |
-| 5 | Methode zum Suchen nach Gewinner erstellen (vertikal, horizontal und diagonal) | 4 | 3 Stunden |
-| 6 | Abwechselnd die Schrift des aktiven Spielers mit einer für ihn vordefinierte Farbe darstellen | 5 | 45 Minuten |
-| 7 | Neues Fenster erstellen, welches sich nach einem Sieg öffnet | 4 | 1,5 Stunden |
-| 8 | Namen des Gewinners im Fenster anzeigen | 4 | 1 Stunde |
-| 9 | Neues Fenster erstellen, welches sich bei einem Unentschieden öffnet | 4 | 2 Stunden |
-| 10 | Button auf inaktiv stellen sobald die zugehörige Spalte voll ist | 1 | 2,5 Stunden |
+| 1 | Grafisches Layout erstellen | 1 | 6 Stunden |
+| 2 | Reihen und Spalten zum Spiel erstellen | 1 | 2 Stunden |
+| 3 | 7 Buttons hinzufügen, die zu den zugehörigen Spalten gehören | 1 | 45 Minuten |
+| 4 | Das Setzen von Spielsteinen an der richtigen Stelle ermöglichen | 1 | 4,5 Stunden |
+| 5 | Das Setzen von Spielsteinen abwechselnd ermöglichen | 1 | 30 Minuten |
+| 6 | Methode zum Suchen nach Gewinner erstellen (vertikal, horizontal und diagonal) | 4 | 3 Stunden |
+| 7 | Abwechselnd die Schrift des aktiven Spielers mit einer für ihn vordefinierte Farbe darstellen | 5 | 1,5 Stunden |
+| 8 | Neues Fenster erstellen, welches sich nach einem Sieg öffnet | 4 | 1 Stunde |
+| 9 | Namen des Gewinners im Fenster anzeigen | 4 | 20 Minuten |
+| 10 | Neues Fenster erstellen, welches sich bei einem Unentschieden öffnet | 4 | 45 Minuten |
+| 11 | Button auf inaktiv stellen sobald die zugehörige Spalte voll ist | 1 | 30 Minuten |
+| 12 | Inbetriebnahme aller setOnAction (Mouse,Taste) | 1 | 4 Stunden |
 
 #### Klassendiagramme
 
@@ -167,17 +169,16 @@ Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche
 #### Taskliste für die Umsetzung der User Stories
 | Tasknumme | Tasks | Userstory | Geschätzter Aufwand |
 |:-:|-----|:-:|:-:|
-| 1 | Exit Button erstellen und mit Exit-Methode verknüpfen | 2 | 1,5 Stunden |
-| 2 | Neustart Button erstellen und mit Neustart-Methode verknüpfen | 2 | 2 Stunden |
-| 3 | Neues Fenster erstellen, dass bei jedem Start/Neustart erscheint | 3 | 1,5 Stunden |
-| 4 | Textfeld in Fenster einfügen um die 2 Namen hintereinander einzugeben | 3 | 1 Stunde |
-| 5 | Namen auf Oberfläche während des Spiels anzeigen lassen | 3 | 1,5 Stunden |
-| 6 | Klassendiagramm auf Eclipse erstellen  | 6 | 1 Stunde |
-| 7 | Dokumentation im MarkDown Format in der README Datei schreiben (Projektbeschreibung) | 6 | 4 Stunden |
-| 8 | Dokumentation im MarkDown Format in der README Datei schreiben (Sprint 1) | 6 | 3 Stunden |
-| 9 | Dokumentation im MarkDown Format in der README Datei schreiben (Sprint 2) | 6 | 3 Stunden |
-| 10 | Kommentare zum Programm hinzufügen | 6 | 1,5 Stunden |
-| 11 | Testklasse schreiben (JUnit) | 6 | 2,5 Stunden |
+| 1 | Exit Button erstellen und mit Exit-Methode verknüpfen | 2 | 30 Minuten |
+| 2 | Neustart Button erstellen und mit Neustart-Methode verknüpfen | 2 | 50 Minuten ||
+| 4 | Textfeld in Fenster einfügen um die 2 Namen hintereinander einzugeben | 3 | 1,5 Stunden |
+| 6 | Klassendiagramm auf Eclipse erstellen  | 6 | 20 Minuten |
+| 7 | Dokumentation im MarkDown Format in der README Datei schreiben (Projektbeschreibung) | 6 | 5 Stunden |
+| 8 | Dokumentation im MarkDown Format in der README Datei schreiben (Sprint 1) | 6 | 4 Stunden |
+| 9 | Dokumentation im MarkDown Format in der README Datei schreiben (Sprint 2) | 6 | 4 Stunden |
+| 10 | Kommentare zum Programm hinzufügen | 6 | 1 Stunde |
+| 11 | Testklassen schreiben (JUnit) | 6 | 1,5 Stunden |
+| 11 | Designen der gesamten Oberfläche | 6 | 3 Stunden |
 #### Klassendiagramme
 
 #### Dokumentation wichtiger Code Snippets
