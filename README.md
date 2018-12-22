@@ -14,20 +14,19 @@ Mitglieder: Tamara Lodico, Killian Valloton, Yannis Schmidt, Carl Podevjin
 1. [Randbedingungen](#randbedingungen)
 1. [Build-Anleitung](#buil-anleitung)
 1. [Kurze Bedienungsanleitung](#kurze-bedienungsanleitung)
-1. [User Stories](#user-stories)
+1. [Userstories](#userstories)
 1. [Releaseplan](#releaseplan)
 1. [Dokumentation Sprint 1](#dokumentation-sprint-1)
-    + [Taskliste für die Umsetzung der User Stories](#taskliste-für-die-umsetzung-der-user-stories)
-    + [Anreicherung der User Stories für die Umsetzung](#anreicherung-der-user-stories-für-die-Umsetzung)
-    + [Klassendiagramme](#klassendiagramme)
+    + [Taskliste für die Umsetzung der Userstories](#taskliste-für-die-umsetzung-der-userstories)
     + [Dokumentation wichtiger Code Snippets](#dokumentation-wichtiger-code-snippets)
+    + [Ergebnisse nach Umsetzung der Userstories](#ergebnisse-nach-umsetzung-der-userstories)
     + [Testfaelle in Bezug auf Akzeptanzkritierium](#testfaelle-in-bezug-auf-akzeptanzkritierium)
     
 1. [Dokumentation Sprint 2](#dokumentation-sprint-2)
-    + [Taskliste für die Umsetzung der User Stories](#taskliste-für-die-umsetzung-der-user-stories)
-    + [Anreicherung der User Stories für die Umsetzung](#anreicherung-der-user-stories-für-die-Umsetzung)
-    + [Klassendiagramme](#klassendiagramme)
+    + [Taskliste für die Umsetzung der Userstories](#taskliste-für-die-umsetzung-der-userstories)
+    + [Klassendiagramm](#klassendiagramm)
     + [Dokumentation wichtiger Code Snippets](#dokumentation-wichtiger-code-snippets)
+    + [Ergebnisse nach Umsetzung der Userstories](#ergebnisse-nach-umsetzung-der-userstories)
     + [Testfaelle in Bezug auf Akzeptanzkritierium](#testfaelle-in-bezug-auf-akzeptanzkritierium)
     
 
@@ -56,49 +55,44 @@ Der Aufwand des Projekts soll pro Student höchstens 10 Stunden sein
 
 ## Build-Anleitung
 
-Vorausgesetzt wird:
+Build Anleitung für alle Betriebssysteme
 
-Korrekte Installation von Maven 4.x sowie richtig gesetztes Java Home Verzeichnis.
+Datei von Github VierGewinnt Projekt herunterladen.
 
-Korrekte Installation von Git sowie JUnit Plug-Ins in Eclipse.
+Im gewüschten Ordner entpacken.
 
-Als erstes muss das Maven-Projekt von GitHub heruntergeladen und in Eclipse importiert werden.
+Den Pfad der gewünschten Versionsdatei (.jar) kopieren.
 
-File>Import>Maven>Check out Maven projects from SCM
+Die Eingabeaufforderung (Konsole) öffnen.
 
-Im Fenster wird als SCM-Quelle nun git gewählt. und den Link zum Projekt eingefügt (entweder direkt copy-paste aus dem Browser, oder durch click auf das Feld "Clone or download".
-Klicken Sie "Finish".
-Das Projekt wird nun in Ihren Workspace heruntergeladen.
+java -jar in die Eingabeaufforderung eingeben gefolgt von dem kopiertem Pfad der .jar datei. Mit Enter bestätigen.x
+Beispiel:
 
-Nun kommen wir zum Build mit Maven:
+java -jar C:\Users\Max Mustermann\Download\VierGewinnt\puissanceQuatre.jar
 
-Klicken Sie mit der rechten Maustaste auf das Projekt > Run as > Maven test.
-Maven Kompiliert nun den Source-Code und schliesst sich danach wieder.
-Klicken Sie erneut mit der rechten Maustaste auf Projekt > Run as > JUnit test.
-Nun oeffnet sich in Eclipse ein neuer Tab, neben dem Package Explorer. Die Testresultate sind da zu sehen.
+Besonders für Windows Betriebssystem - Erstellen eines Desktop Icons zum Starten des Programms durch Doppelklick.
 
-Navigieren Sie mit der Kommandozeile das Projekt. (Die pom.xml Datei sollte hier auffindbar sein.):
+Den Pfad der gewünschten Versionsdatei (.jar) kopieren.
 
-Mit mvn test
-kompilieren Sie den Test und bestätigen das Funktionieren des Programms.
+Auf dem Desktop mit Rechtsklicl eine neue Verknüpfung erstellen.
 
-Gehen Sie wieder auf das Projekt > Run as > Maven install , im Unterordner "Target" finden Sie nun das .jar File. Durch Doppelklick öffnet es sich.
+Den Pfad zuvor kopierten Pfad dort eingeben.
 
-Mit mvn install
-installieren Sie das komplette Programm in den Ordner: .../VierGewinnt/target
+Die Verknüpfung benennen mit OK bestätigen.
 
-Mit java -jar target/VierGewinnt-0.0.1-SNAPSHOT.jar ,
-starten Sie das Programm.
+Die Eigenschaften der Verknüpfung aufrufen dort im Reiter "Verknüfung" "Anderes Symbol..." auswählen dort Symbol auswählen und mit OK bestätigen
+
+Im Reiter "Allgemein" die Option "öffnen mit" ändern auf "Java(TM) Platform..." und mit ok bestätigen.
 
 ## Kurze Bedienungsanleitung
 
 Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spiels. Sie werden erkennen, dass das Spiel in 6 Reihen und 7 Spalten aufgebaut ist. Die typischen Regeln eines Vier Gewinnt Spiels sind folgende: Das Spiel wird im eins gegen eins Modus gespielt. Jeder Spieler bekommt eine Farbe von Spielsteinen, mit denen er versuchen soll, eine Reihe von 4 Spielsteinen hintereinander seiner Farbe zu bekommen. Dies kann horizontal, vertikal oder auch diagonal erreicht werden. Sobald der Spieler eine solche Viererreihe erreicht, hat er gewonnen und das Spiel kann erneut gestartet werden. Die Bedienung des Spiels funktionniert mittels Mausklick aber auch mittels Tasteneingaben. 
 
-## User Stories
+## Userstories
 | **Userstory Nr.** |   **Userstories / Akzeptanzkriterien**  | **Storypoints**  |  **Priorität** |
 |:-:|-----|:-:|:-:|
 | 1  | Als Benutzer möchte ich eine Spalte auswählen um einen Spielstein zu platzieren.<br/>AK: Wahl zwischen 7 Spalten durch Buttons | 8 | 1 |
-| 2  |   Als Benutzer möchte ich das Spiel neustarten und verlassen können.<br/>AK: Neustart und Exit durch Buttons  | 3 | 2 |
+| 2  |   Als Benutzer möchte ich das Spiel neustarten und verlassen können.<br/>AK: Neustart und Exit durch Buttons  | 2 | 2 |
 | 3  |   Als Benutzer möchte ich die Namen für die 2 Spieler eingeben können.<br/>AK: Texteingabefeld welches bei jedem Start/Neustart erscheint und in den Namen vom Spieler 1 und 2 hintereinander abfragt  | 5 | 3 |
 |  4 |  Als Benutzer möchte ich angezeigt bekommen sobald ich gewonnen habe.<br/>AK: Öffnen eines neuen Fensters welches den Gewinner anzeigt | 5 | 2  |
 |  5 |  Als Benutzer möchte ich angezeigt bekommen welcher Spieler am Zug ist.<br/> AK: Farbwechsel des Schriftzugs für den Spieler der am Zug ist  |  3 |  2 |
@@ -115,7 +109,7 @@ Legende : AK = Akzeptanzkriterium
 Legende : US = Userstory
 
 ## Dokumentation Sprint 1
-#### Taskliste für die Umsetzung der User Stories
+#### Taskliste für die Umsetzung der Userstories
 | Tasknummer | Tasks | Userstory | Geschätzter Aufwand |
 |:-:|-----|:-:|:-:|
 | 1 | Grafisches Layout erstellen | 1 | 6 Stunden |
@@ -130,12 +124,6 @@ Legende : US = Userstory
 | 10 | Neues Fenster erstellen, welches sich bei einem Unentschieden öffnet | 4 | 45 Minuten |
 | 11 | Button auf inaktiv stellen sobald die zugehörige Spalte voll ist | 1 | 30 Minuten |
 | 12 | Inbetriebnahme aller setOnAction (Mouse,Taste) | 1 | 4 Stunden |
-
-#### Klassendiagramme
-
-Das Klassendiagramm:
-
-Für das Klassendiagramm haben wir am Anfang 2 Klassen. Eine Mainklasse in der unser Hauptprogramm enthalten ist sowie eine Klasse in der unsere Oberfläche enthalten ist.
 
 #### Dokumentation wichtiger Code Snippets
 Erstellen des Gitters und füllen mit ausgeblendeten Punkten :
@@ -154,6 +142,8 @@ Methode um den Spieler zu wechseln :
 
 ![GewinnerNachricht](Bilder/GewinnerNachricht.png)
 
+#### Ergebnisse nach Umsetzung der Userstories
+
 Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche:
 
 ![Bild Oberfläche1](Bilder/Oberfläche1.PNG)
@@ -166,7 +156,7 @@ Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche
 | 3 | 5 | Das Spiel wurde gestartet Nach jedem Wechsel des Spielers am Zug | Sobald ein Spieler am Zug ist | Der Spieler, der am Zug ist bekommt durch einen Farbwechsel auf seinen Namen angezeigt, dass er an der Reihe ist |
 ## Dokumentation Sprint 2
 
-#### Taskliste für die Umsetzung der User Stories
+#### Taskliste für die Umsetzung der Userstories
 | Tasknumme | Tasks | Userstory | Geschätzter Aufwand |
 |:-:|-----|:-:|:-:|
 | 1 | Exit Button erstellen und mit Exit-Methode verknüpfen | 2 | 30 Minuten |
@@ -179,8 +169,14 @@ Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche
 | 10 | Kommentare zum Programm hinzufügen | 6 | 1 Stunde |
 | 11 | Testklassen schreiben (JUnit) | 6 | 1,5 Stunden |
 | 11 | Designen der gesamten Oberfläche | 6 | 3 Stunden |
-#### Klassendiagramme
+
+#### Klassendiagramm
+
+Das Klassendiagramm:
+
 ![Bild Klassendiagramm](Bilder/Klassendiagramm.PNG)
+
+Für das Klassendiagramm haben wir  2 Klassen. Eine Mainklasse ("LogicModule") in der unser Hauptprogramm enthalten ist sowie eine Layout Klasse ("MainApp") in der unsere Oberfläche enthalten ist.
 
 #### Dokumentation wichtiger Code Snippets
 Code um eine Gewinnerlinie zu finden:
@@ -195,11 +191,18 @@ JUnit: testet ob es erkennt, dass es ein Gewinner gibt
 
 ![Bild JUnit1](Bilder/JUnit1.png)
 
+#### Ergebnisse nach Umsetzung der Userstories
 
 Nach dem zweiten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche:
 
-![Bild PlayerInput](Bilder/PlayerInput.png)
+- Eine Spielereingabe, die sich nach jedem Start/Neustart öffnet:
+
+![Bild PlayerInput](Bilder/PlayerInput.png)    
+
+- Die Oberfläche unseres Spiels mit platzierten Steinen:
 ![Bild ConnectFour](Bilder/ConnectFour.png)
+
+- Das geöffnete Fenster sobald ein Spieler gewonnen hat.
 ![Bild Congratulations](Bilder/Congratulations.png)
 
 #### Testfaelle in Bezug auf Akzeptanzkritierium
