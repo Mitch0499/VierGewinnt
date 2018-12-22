@@ -186,6 +186,11 @@ Save button zum Speichern der Spielernamen (setOnAction mit Mause und Taste)
 
 ![Bild SaveButton](Bilder/SaveButton.png)
 
+JUnit: testet ob es erkennt, dass es ein Gewinner gibt
+
+![Bild JUnit1](Bilder/JUnit1.png)
+
+
 Nach dem zweiten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche:
 
 ![Bild PlayerInput](Bilder/PlayerInput.png)
