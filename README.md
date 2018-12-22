@@ -163,7 +163,7 @@ Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche
 |:-:|:-:|-----|-----|-----|
 | 1 | 1 | Das Spiel wurde gestartet und die Oberfläche ist bereit | Klicke auf beliebigen Knopf zwischen 1-7 | Der Spielstein erscheint an der untersten Stelle der gewählten Reihe |
 | 2 | 4 | Der Spieler muss noch einen Stein setzen um zu gewinnen | Klicke auf den notwendigen Knopf um zu gewinnen | Der Spieler bekommt in einem neuen Fenster angezeigt, dass er gewonnen hat |
-| 3 | 5 | Das Spiel wurde gestartet nach jedem Wechsel des Spielers am Zug | Sobald ein Spieler am Zug ist | Der Spieler, der am Zug ist bekommt durch einen Farbwechsel auf seinen Namen angezeigt, dass er an der Reihe ist |
+| 3 | 5 | Das Spiel wurde gestartet Nach jedem Wechsel des Spielers am Zug | Sobald ein Spieler am Zug ist | Der Spieler, der am Zug ist bekommt durch einen Farbwechsel auf seinen Namen angezeigt, dass er an der Reihe ist |
 ## Dokumentation Sprint 2
 
 #### Taskliste für die Umsetzung der User Stories
@@ -189,6 +189,6 @@ Save button zum Speichern der Spielernamen (setOnAction mit Mause und Taste)
 #### Testfaelle in Bezug auf Akzeptanzkritierium
 | Testfall | Aus US/AK | Vorbedingung | Ablauf | Resultat |
 |:-:|:-:|-----|-----|-----|
-| 1 | 2 | Das Programm wurde gestartet | Klicke auf den Knopf „Neustart“ Klicke auf den Knopf „Exit“ | Das Spiel wird neugestartet Das Spiel wird beendet |
+| 1 | 2 | Das Programm wurde gestartet | Klicke auf den Knopf „New Game“ Klicke auf den Knopf „Exit“ | Das Spiel wird neugestartet Das Spiel wird beendet |
 | 2 | 6 | Das Programm soll durch Features verbessert werden | Programmiere den zu hinzufügenden Teil | Das Spiel läuft ohne Probleme mit den neuen Features |
-| 3 | 3 | Das Spiel wurde gestartet Das Spiel wurde neugestartet | Trage die Namen der 2 Spieler in die Textfelder ein und bestätige  | Die Namen werden während dieses Spiels angezeigt  |
+| 3 | 3 | Das Spiel wurde gestartet Das Spiel wurde neugestartet | Trage die Namen der 2 Spieler in die Textfelder ein und drücke auf den Knopf „Save“  | Die Namen werden während dieses Spiels angezeigt  |
