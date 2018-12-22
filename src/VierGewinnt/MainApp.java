@@ -4,7 +4,7 @@ import javafx.scene.paint.Color;
 
 public class MainApp {
 
-	public int pitch [][] = new int [6][7];				//picht[row][column] = Player occupys place
+	public int pitch [][] = new int [6][7];				//pitch[row][column] = Player occupys place
 	public int points [] = new int [7];					//points[column] = amount of points in column
 	private int coordinateX, coordinateY;
 	private int player=0;
@@ -80,7 +80,7 @@ public class MainApp {
 			}
 		}
 		
-		//diagnoal, left top to bottom right line
+		//diagonal, left top to bottom right line
 		for (int row=3; row<6; row++) {
 			for (int column=0; column<4; column++) {
 				if ((pitch[row][column]==pitch[row-1][column+1])&&
