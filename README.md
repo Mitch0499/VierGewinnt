@@ -182,6 +182,10 @@ Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche
 #### Klassendiagramme
 
 #### Dokumentation wichtiger Code Snippets
+Code um eine Gewinnerlinie zu finden:
+
+![Bild GewinnerLinie](Bilder/GewinnerLinie.PNG)
+
 Save button zum Speichern der Spielernamen (setOnAction mit Mause und Taste)
 
 ![Bild SaveButton](Bilder/SaveButton.png)
