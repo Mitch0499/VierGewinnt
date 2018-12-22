@@ -1,8 +1,6 @@
 package VierGewinnt;
 
-import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 
 public class MainApp {
 
