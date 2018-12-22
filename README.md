@@ -180,6 +180,7 @@ Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche
 | 11 | Testklassen schreiben (JUnit) | 6 | 1,5 Stunden |
 | 11 | Designen der gesamten Oberfläche | 6 | 3 Stunden |
 #### Klassendiagramme
+![Bild Klassendiagramm](Bilder/Klassendiagramm.PNG)
 
 #### Dokumentation wichtiger Code Snippets
 Code um eine Gewinnerlinie zu finden:
