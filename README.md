@@ -54,7 +54,7 @@ Build-Automatisierung: Maven
 
 Der Aufwand des Projekts soll pro Student höchstens 10 Stunden sein
 
-## Buil-Anleitung
+## Build-Anleitung
 
 Laden Sie sich die Datei xyz.jar auf ihren PC runter. Und führen Sie sie aus.
 
