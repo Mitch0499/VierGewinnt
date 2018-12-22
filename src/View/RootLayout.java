@@ -1,5 +1,5 @@
 /*
- * Projektarbeit Programmieren II
+ * Projektarbeit Programmieren II / Software Engineering
  * 
  * Betreuer:
  * Matthias Bachmann
@@ -16,7 +16,7 @@
  * Anwenden von GitHub Projektführung
  * Anwenden von Maven
  * 
- * Fertigstellungsdatum: 22.12.2018, 23.55
+ * Fertigstellungsdatum: 23.12.2018, 23.55
  */
 
 package View;
@@ -181,7 +181,7 @@ public class RootLayout extends Application {
 		return vbox;
 	}
 	
-	//Mehtod of setOnAction of the Buttons
+	//Method of setOnAction of the Buttons
 	void setOnAction(int buttonNumber) {
 		game.nextPlayer();
 		game.refreshPitch(buttonNumber, game.getPlayer());
