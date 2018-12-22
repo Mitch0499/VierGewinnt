@@ -186,9 +186,10 @@ public class RootLayout extends Application {
 		game.nextPlayer();
 		game.refreshPitch(buttonNumber, game.getPlayer());
 		if (game.searchingWinner()==true) {
+			stopButton();
 			popupWinner();
 		}
-		if (game.lookingForDraw()==true) {
+		else if (game.lookingForDraw()==true) {
 			popupDraw();
 		}
 		circle[buttonNumber][game.getCoordinateY()].setVisible(true);	
@@ -418,5 +419,16 @@ public class RootLayout extends Application {
 				circle[i][j].setVisible(false);
 			}
 		}
+	}
+	
+	//Disable all Buttons when the game is finished
+	void stopButton() {
+		button[0].setDisable(true);
+		button[1].setDisable(true);
+		button[2].setDisable(true);
+		button[3].setDisable(true);
+		button[4].setDisable(true);
+		button[5].setDisable(true);
+		button[6].setDisable(true);
 	}
 }
