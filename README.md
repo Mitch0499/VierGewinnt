@@ -186,6 +186,10 @@ Save button zum Speichern der Spielernamen (setOnAction mit Mause und Taste)
 
 ![Bild SaveButton](Bilder/SaveButton.png)
 
+Nach dem zweiten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche:
+
+
+
 #### Testfaelle in Bezug auf Akzeptanzkritierium
 | Testfall | Aus US/AK | Vorbedingung | Ablauf | Resultat |
 |:-:|:-:|-----|-----|-----|
