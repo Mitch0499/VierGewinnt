@@ -6,11 +6,11 @@ import org.junit.Test;
 
 public class Test_nextPlayerMethode {
 
-	private MainApp m = null;
+	private LogicModule m = null;
 	
 	@Before
 	public void before () {
-		this.m = new MainApp();
+		this.m = new LogicModule();
 	}
 	
 	@Test
