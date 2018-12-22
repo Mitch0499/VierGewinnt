@@ -59,11 +59,11 @@ public class RootLayout extends Application {
 	Circle circle[][] = new Circle [7][6];						//Points for gaming piece
 	Button button[] = new Button[7];							//setOnAction the gaming pieces
 	Label text [] = new Label [4];                //Label for showing whose turn it is
-	
+
 	MainApp game = new MainApp();
 
 	public void start(Stage primaryStage) {
-    
+
 		root.setTop(createTopPane());
 		root.setCenter(createCenterPane());
 		root.setLeft(getLeftHBox());
@@ -141,48 +141,47 @@ public class RootLayout extends Application {
 			}  
 		}
 
-		//Button
-				HBox hbox;
+		//Button to place the Points
+		for(int i=0; i<7; i++) {                                                             
+			button[i] = new Button("#" +(i+1));
+			button[i].setFont(Font.font("Cambria", 10));
+			button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
+			button[i].setMinSize(50, 25);
+		}
 
-				for(int i=0; i<7; i++) {                                                             
-					button[i] = new Button("#" +(i+1));
-					button[i].setFont(Font.font("Cambria", 10));
-					button[i].setStyle("-fx-background-color: #3232ff"); //background color of button
-					button[i].setMinSize(50, 25);
-				}
-
-				button[0].setOnAction(event -> {	setOnAction(0);
-				});
+		button[0].setOnAction(event -> {	setOnAction(0);
+		});
 
 
-				button[1].setOnAction(event -> {	setOnAction(1);						
-				});
+		button[1].setOnAction(event -> {	setOnAction(1);						
+		});
 
-				button[2].setOnAction(event -> {	setOnAction(2);
-				});
-				
-				button[3].setOnAction(event -> {	setOnAction(3);
-				});
+		button[2].setOnAction(event -> {	setOnAction(2);
+		});
 
-				button[4].setOnAction(event -> {	setOnAction(4);
-				});
+		button[3].setOnAction(event -> {	setOnAction(3);
+		});
 
-				button[5].setOnAction(event -> {	setOnAction(5);
-				});
+		button[4].setOnAction(event -> {	setOnAction(4);
+		});
 
-				button[6].setOnAction(event -> {	setOnAction(6);
-				});
-		    
-				hbox = new HBox(22, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
-				hbox.setAlignment(Pos.CENTER);
-				hbox.setPadding(new Insets(20, 10, 10, 10));
-    
+		button[5].setOnAction(event -> {	setOnAction(5);
+		});
+
+		button[6].setOnAction(event -> {	setOnAction(6);
+		});
+
+		HBox hbox = new HBox(22, button[0], button[1], button[2], button[3], button[4], button[5], button[6]);
+		hbox.setAlignment(Pos.CENTER);
+		hbox.setPadding(new Insets(20, 10, 10, 10));
+
 		VBox vbox = new VBox();
 		vbox.getChildren().addAll(hbox, gpane);
 
 		return vbox;
 	}
 	
+	//Mehtod of setOnAction of the Buttons
 	void setOnAction(int buttonNumber) {
 		game.nextPlayer();
 		game.refreshPitch(buttonNumber, game.getPlayer());
@@ -202,6 +201,8 @@ public class RootLayout extends Application {
 	}
 
 	GridPane getRightHBox()	{
+		
+		//Result of games
 		Label text[] = new Label[6];
 		text[0] = new Label(game.getFirstPlayer());
 		text[1] = new Label(":");
@@ -230,6 +231,8 @@ public class RootLayout extends Application {
 	}
 
 	VBox getLeftHBox()	{
+		
+		//set Name of Player to number of Player
 		text[0] = new Label("Spieler 1:");
 		text[1] = new Label(game.getFirstPlayer());
 		text[2] = new Label("Spieler 2:");
@@ -242,12 +245,13 @@ public class RootLayout extends Application {
 		}
 
 		text[1].setFont(Font.font("Arial",30));
-		
+
 		VBox vbox = new VBox(text[0], text[1] , text[2], text[3]);
 		vbox.setAlignment(Pos.CENTER);
 		return vbox;
 	}
-	
+
+	//define which Player have to play
 	void markPlayer() {
 		if (game.getPlayer()==2) {
 			text[1].setFont(Font.font("Arial", 30));
@@ -265,17 +269,20 @@ public class RootLayout extends Application {
 
 	HBox createBottomPane() {
 
+		//Button for new Game
 		Button newGame = new Button("new Game");
 		newGame.setOnAction(event -> {	game.resetGame();
 
-										resetPitch();
-										for (int i=0; i<7; i++) {
-											button[i].setDisable(false);
-										}
-										root.setRight(getRightHBox());
-										markPlayer();
+		resetPitch();
+		for (int i=0; i<7; i++) {
+			button[i].setDisable(false);
+		}
+		root.setRight(getRightHBox());
+		markPlayer();
 
 		});
+		
+		//Button for Exit Game
 		Button exit = new Button("Exit");
 		exit.setOnAction(event -> {	game.exitGame();
 		});
@@ -287,18 +294,23 @@ public class RootLayout extends Application {
 		return hbox;
 	}
 
+	//Window which shows winner
 	void popupWinner() {
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("Vier Gewinnt Gewinner - Puissance Quatre gagneur");
-		Label label1 = new Label("Herzlichen Glückwunsch!");
+		window.setTitle("Connect Four");
+		
+		//Set the application icon
+		window.getIcons().add(new Image("file:///C:/Users/kiki1/git/VierGewinnt/resources/images/iconfinder_Games_BoardGames_Artboard_28_3828857.png"));
+		
+		Label label1 = new Label("Congratulations");
 		Label label2 = new Label();
 		if (game.getPlayer()==1) {
-			label2.setText(game.getFirstPlayer() + " hat gewonnen");
+			label2.setText(game.getFirstPlayer() + " wins the game");
 			game.setWinsFirstPlayer(game.getWinsFirstPlayer()+1);
 		}
 		if (game.getPlayer()==2) {
-			label2.setText(game.getSecondPlayer() + " hat gewonnen");
+			label2.setText(game.getSecondPlayer() + " wins the game");
 			game.setWinsSecondPlayer(game.getWinsSecondPlayer()+1);
 		}
 		VBox vbox = new VBox(20, label1, label2);
@@ -308,12 +320,17 @@ public class RootLayout extends Application {
 		window.show();
 	}
 
+	//Window when drawn game
 	void popupDraw() {
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("Vier Gewinnt Gewinner - Puissance Quatre gagneur");
-		Label label1 = new Label("Sie haben das Spiel beendet.");
-		Label label2 = new Label("Es steht unentschieden");
+		window.setTitle("Connect Four");
+		
+		//Set the application icon
+		window.getIcons().add(new Image("file:///C:/Users/kiki1/git/VierGewinnt/resources/images/iconfinder_Games_BoardGames_Artboard_28_3828857.png"));
+		
+		Label label1 = new Label("The game is over");
+		Label label2 = new Label("Its a draw game");
 		VBox vbox = new VBox(20, label1, label2);
 		vbox.setAlignment(Pos.CENTER);
 		Scene windowScene = new Scene(vbox, 300, 200);
@@ -321,30 +338,39 @@ public class RootLayout extends Application {
 		window.show();
 	}
 
+	//Window to enter the name of players
 	void popupSetNames() {
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
-		window.setTitle("Spieler eingabe");
-		Label label1 = new Label("Geben Sie die Namen der Spieler ein.");
+		window.setTitle("Player input");
+		
+		//Set the application icon
+		window.getIcons().add(new Image("file:///C:/Users/kiki1/git/VierGewinnt/resources/images/iconfinder_Games_BoardGames_Artboard_28_3828857.png"));
+		
+		Label label1 = new Label("Enter name of player");
 		label1.setAlignment(Pos.CENTER);
 
-		Label label2 = new Label("Spieler 1: ");
-		Label label3 = new Label("Spieler 2: ");
+		Label label2 = new Label("Player 1: ");
+		Label label3 = new Label("Player 2: ");
 		TextField textField1 = new TextField();
-		textField1.setPromptText("Name player 1");
+		textField1.setPromptText("name player 1");
 		TextField textField2 = new TextField();
-		textField2.setPromptText("Name player 2");
+		textField2.setPromptText("name player 2");
+		
+		//Button save
 		Button button1 = new Button("Save");
 		button1.disableProperty().bind(Bindings.isEmpty(textField1.textProperty()).or(Bindings.isEmpty(textField2.textProperty())));
+		//setOnKeyPressed with Enter for button save
 		button1.setOnKeyPressed(event -> {	switch(event.getCode()) {
-					                   						case ENTER:
-							                  					game.setFirstPlayer(textField1.getText().toString());
-											                  	game.setSecondPlayer(textField2.getText().toString());
-											                  	window.close();
-											                  	root.setLeft(getLeftHBox());
-											                  	root.setRight(getRightHBox());
+		case ENTER:
+			game.setFirstPlayer(textField1.getText().toString());
+			game.setSecondPlayer(textField2.getText().toString());
+			window.close();
+			root.setLeft(getLeftHBox());
+			root.setRight(getRightHBox());
 		};									
 		});	
+		//setOnAction with Mouse for button save
 		button1.setOnAction(event -> {
 			game.setFirstPlayer(textField1.getText().toString());
 			game.setSecondPlayer(textField2.getText().toString());
@@ -352,12 +378,16 @@ public class RootLayout extends Application {
 			root.setLeft(getLeftHBox());
 			root.setRight(getRightHBox());
 		});
+		
+		//Button Exit
 		Button button2 = new Button("Exit");
+		//setOnKeyPressed with Enter for button exit
 		button2.setOnKeyPressed(event -> {	switch(event.getCode()) {
 		case ENTER:
 			game.exitGame();
 		};									
 		});
+		//setOnAction with Mouse for button exit
 		button2.setOnAction(event -> {	game.exitGame();
 		});
 
@@ -381,6 +411,7 @@ public class RootLayout extends Application {
 		window.show();
 	}
 
+	//Disable all points
 	public void resetPitch() {
 		for (int i=0; i<7; i++) {
 			for (int j=0; j<6; j++) {
