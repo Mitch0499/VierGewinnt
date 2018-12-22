@@ -108,7 +108,7 @@ Erstellen des Gitters und füllen mit ausgeblendeten Punkten :
 
 ![Bild Gitter](Bilder/Gitter.PNG)
 
-Erstellen der button mit einem Exemplar des setOnAction (mit Maus und Taste):
+Erstellen der Button mit einem Exemplar des setOnAction (mit Maus und Taste):
 
 ![Bild Button](Bilder/Button.png)
 
