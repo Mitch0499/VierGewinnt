@@ -104,6 +104,8 @@ Das Klassendiagramm:
 Für das Klassendiagramm haben wir am Anfang 2 Klassen. Eine Mainklasse in der unser Hauptprogramm enthalten ist sowie eine Klasse in der unsere Oberfläche enthalten ist.
 
 #### Dokumentation wichtiger Code Snippets
+Erstellen des Gitters und füllen mit ausgeblendeten Punkten :
+![Bild Gitter](Bilder/Gitter.PNG)
 
 Unser Mainprogram: 
 
