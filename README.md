@@ -190,6 +190,7 @@ Nach dem zweiten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläch
 
 ![Bild PlayerInput](Bilder/PlayerInput.png)
 ![Bild ConnectFour](Bilder/ConnectFour.png)
+![Bild Congratulations](Bilder/Congratulations.png)
 
 #### Testfaelle in Bezug auf Akzeptanzkritierium
 | Testfall | Aus US/AK | Vorbedingung | Ablauf | Resultat |
