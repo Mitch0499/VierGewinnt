@@ -188,7 +188,6 @@ Save button zum Speichern der Spielernamen (setOnAction mit Mause und Taste)
 
 Nach dem zweiten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche:
 
-![Bild PlayerInput](Bilder/PlayerInput.png)
 ![Bild ConnectFour](Bilder/ConnectFour.png)
 ![Bild Congratulations](Bilder/Congratulations.png)
 
