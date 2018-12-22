@@ -56,7 +56,39 @@ Der Aufwand des Projekts soll pro Student höchstens 10 Stunden sein
 
 ## Build-Anleitung
 
-Laden Sie sich die Datei xyz.jar auf ihren PC runter. Und führen Sie sie aus.
+Vorausgesetzt wird:
+
+Korrekte Installation von Maven 4.x sowie richtig gesetztes Java Home Verzeichnis.
+
+Korrekte Installation von Git sowie JUnit Plug-Ins in Eclipse.
+
+Als erstes muss das Maven-Projekt von GitHub heruntergeladen und in Eclipse importiert werden.
+
+File>Import>Maven>Check out Maven projects from SCM
+
+Im Fenster wird als SCM-Quelle nun git gewählt. und den Link zum Projekt eingefügt (entweder direkt copy-paste aus dem Browser, oder durch click auf das Feld "Clone or download".
+Klicken Sie "Finish".
+Das Projekt wird nun in Ihren Workspace heruntergeladen.
+
+Nun kommen wir zum Build mit Maven:
+
+Klicken Sie mit der rechten Maustaste auf das Projekt > Run as > Maven test.
+Maven Kompiliert nun den Source-Code und schliesst sich danach wieder.
+Klicken Sie erneut mit der rechten Maustaste auf Projekt > Run as > JUnit test.
+Nun oeffnet sich in Eclipse ein neuer Tab, neben dem Package Explorer. Die Testresultate sind da zu sehen.
+
+Navigieren Sie mit der Kommandozeile das Projekt. (Die pom.xml Datei sollte hier auffindbar sein.):
+
+Mit mvn test
+kompilieren Sie den Test und bestätigen das Funktionieren des Programms.
+
+Gehen Sie wieder auf das Projekt > Run as > Maven install , im Unterordner "Target" finden Sie nun das .jar File. Durch Doppelklick öffnet es sich.
+
+Mit mvn install
+installieren Sie das komplette Programm in den Ordner: .../VierGewinnt/target
+
+Mit java -jar target/VierGewinnt-0.0.1-SNAPSHOT.jar ,
+starten Sie das Programm.
 
 ## Kurze Bedienungsanleitung
 
@@ -104,25 +136,21 @@ Das Klassendiagramm:
 Für das Klassendiagramm haben wir am Anfang 2 Klassen. Eine Mainklasse in der unser Hauptprogramm enthalten ist sowie eine Klasse in der unsere Oberfläche enthalten ist.
 
 #### Dokumentation wichtiger Code Snippets
-Den Spieler zu wechseln :
-
-![Bild SpielerWechsel](Bilder/SpielerWechsel.PNG)
-
 Erstellen des Gitters und füllen mit ausgeblendeten Punkten :
 
 ![Bild Gitter](Bilder/Gitter.PNG)
 
-Erstellen der Button mit einem Exemplar des setOnAction (mit Maus und Taste):
+Erstellen der Buttons mit einem Exemplar des setOnAction (mit Maus und Taste):
 
 ![Bild Button](Bilder/Button.png)
 
-Die Nachricht, um den Gewinner zu definieren :
+Methode um den Spieler zu wechseln :
+
+![Bild SpielerWechsel](Bilder/SpielerWechsel.PNG)
+
+Öffnen eines neuen Fensters um den Gewinner zu definieren :
 
 ![GewinnerNachricht](Bilder/GewinnerNachricht.png)
-
-Unser Mainprogram: 
-
-Die erstellten Buttons:
 
 Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche:
 
@@ -153,7 +181,7 @@ Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche
 #### Klassendiagramme
 
 #### Dokumentation wichtiger Code Snippets
-Den Save Button einrichten :
+Save button zum Speichern der Spielernamen (setOnAction mit Mause und Taste)
 
 ![Bild SaveButton](Bilder/SaveButton.png)
 
