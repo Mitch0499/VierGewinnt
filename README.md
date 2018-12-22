@@ -1,10 +1,10 @@
 # Projekt VierGewinnt:
 
-Java/Software Engineering Project VierGewinnt
+Programmieren II / Software Engineering Projekt VierGewinnt
 
 
 
-Mitglieder: Tamara Lodico, Killian Valloton,Yannis Schmidt, Carl Podevjin
+Mitglieder: Tamara Lodico, Killian Valloton, Yannis Schmidt, Carl Podevjin
 
 
 ### Inhaltsverzeichnis
@@ -60,7 +60,7 @@ Laden Sie sich die Datei xyz.jar auf ihren PC runter. Und führen Sie sie aus.
 
 ## Kurze Bedienungsanleitung
 
-Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spiels. Sie werden erkennen, dass das Spiel in 6 Reihen und 7 Spalten aufgebaut ist. Die typischen Regeln eines Vier Gewinnt Spiels sind folgende: Das Spiel wird im eins gegen eins Modus gespielt. Jeder Spieler bekommt eine Farbe von Spielsteinen, mit denen er versuchen soll eine Reihe von 4 Spielsteinen hintereinander seiner Farbe zu bekommen. Dies kann horizontal, vertikal oder auch diagonal erreicht werden. Sobald der Spieler eine solche Viererreihe erreicht, hat er gewonnen und das Spiel kann erneut gestartet werden. 
+Nach dem Starten der . Datei erscheint die Oberfläche unseres Vier Gewinnt Spiels. Sie werden erkennen, dass das Spiel in 6 Reihen und 7 Spalten aufgebaut ist. Die typischen Regeln eines Vier Gewinnt Spiels sind folgende: Das Spiel wird im eins gegen eins Modus gespielt. Jeder Spieler bekommt eine Farbe von Spielsteinen, mit denen er versuchen soll, eine Reihe von 4 Spielsteinen hintereinander seiner Farbe zu bekommen. Dies kann horizontal, vertikal oder auch diagonal erreicht werden. Sobald der Spieler eine solche Viererreihe erreicht, hat er gewonnen und das Spiel kann erneut gestartet werden. 
 
 ## User Stories
 | **Userstory Nr.** |   **Userstories / Akzeptanzkriterien**  | **Storypoints**  |  **Priorität** |
@@ -78,9 +78,10 @@ Legende : AK = Akzeptanzkriterium
 |:-:|:-:|
 |  US 1 | US 2  |
 |  US 4 | US 6  |
-| US 5  |  US 3 |
+|  US 5 | US 3  |
 
 Legende : US = Userstory
+
 ## Dokumentation Sprint 1
 #### Taskliste für die Umsetzung der User Stories
 | Tasknummer | Tasks | Userstory | Geschätzter Aufwand |
@@ -122,7 +123,7 @@ Nach dem ersten Sprint haben wir folgendes Ergebnis für unsere Spieloberfläche
 
 #### Taskliste für die Umsetzung der User Stories
 | Tasknumme | Tasks | Userstory | Geschätzter Aufwand |
-|:-:|:-:|:-:|:-:|
+|:-:|-----|:-:|:-:|
 | 1 | Exit Button erstellen und mit Exit-Methode verknüpfen | 2 | 1,5 Stunden |
 | 2 | Neustart Button erstellen und mit Neustart-Methode verknüpfen | 2 | 2 Stunden |
 | 3 | Neues Fenster erstellen, dass bei jedem Start/Neustart erscheint | 3 | 1,5 Stunden |
