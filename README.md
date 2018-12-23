@@ -12,7 +12,7 @@ Mitglieder: Tamara Lodico, Killian Valloton, Yannis Schmidt, Carl Podevjin
 1. [Einleitung](#einleitung)
 1. [Ziele](#ziele)
 1. [Randbedingungen](#randbedingungen)
-1. [Build-Anleitung](#buil-anleitung)
+1. [Build-Anleitung](#build-anleitung)
 1. [Kurze Bedienungsanleitung](#kurze-bedienungsanleitung)
 1. [Userstories](#userstories)
 1. [Releaseplan](#releaseplan)
@@ -74,7 +74,7 @@ Besonders für Windows Betriebssystem - Erstellen eines Desktop Icons zum Starte
 
 Den Pfad der gewünschten Versionsdatei (.jar) kopieren.
 
-Auf dem Desktop mit Rechtsklicl eine neue Verknüpfung erstellen.
+Auf dem Desktop mit Rechtsklick eine neue Verknüpfung erstellen.
 
 Den Pfad zuvor kopierten Pfad dort eingeben.
 
