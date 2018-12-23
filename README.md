@@ -55,34 +55,13 @@ Der Aufwand des Projekts soll pro Student höchstens 10 Stunden sein
 
 ## Build-Anleitung
 
-Build Anleitung für alle Betriebssysteme
+Build-Anleitung für alle Betriebssysteme
 
-Datei von Github VierGewinnt Projekt herunterladen.
+- Überprüfen Sie, ob auf Ihrem Computer eine Java Runtime Environment installiert ist.
 
-Im gewüschten Ordner entpacken.
+- Laden Sie die puissanceQuatre.jar Datei von unserem VierGewinnt Projekt herunter und entpacken Sie sie im gewünschten Ordner.
 
-Den Pfad der gewünschten Versionsdatei (.jar) kopieren.
-
-Die Eingabeaufforderung (Konsole) öffnen.
-
-java -jar in die Eingabeaufforderung eingeben gefolgt von dem kopiertem Pfad der .jar datei. Mit Enter bestätigen.x
-Beispiel:
-
-java -jar C:\Users\Max Mustermann\Download\VierGewinnt\puissanceQuatre.jar
-
-Besonders für Windows Betriebssystem - Erstellen eines Desktop Icons zum Starten des Programms durch Doppelklick.
-
-Den Pfad der gewünschten Versionsdatei (.jar) kopieren.
-
-Auf dem Desktop mit Rechtsklick eine neue Verknüpfung erstellen.
-
-Den Pfad zuvor kopierten Pfad dort eingeben.
-
-Die Verknüpfung benennen mit OK bestätigen.
-
-Die Eigenschaften der Verknüpfung aufrufen dort im Reiter "Verknüfung" "Anderes Symbol..." auswählen dort Symbol auswählen und mit OK bestätigen
-
-Im Reiter "Allgemein" die Option "öffnen mit" ändern auf "Java(TM) Platform..." und mit ok bestätigen.
+- Führen Sie die Datei durch Rechtsklick->Ausführen oder durch Doppelklick aus.
 
 ## Kurze Bedienungsanleitung
 
